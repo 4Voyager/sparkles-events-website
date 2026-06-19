@@ -29,6 +29,35 @@ const valueSection = document.querySelector(".value-section");
 const slideTitle = document.getElementById("slide-title");
 const slideDescription = document.getElementById("slide-description");
 const dots = document.querySelectorAll(".dot");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        navToggle.classList.toggle("open", isOpen);
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("nav-open", isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            navToggle.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("nav-open");
+        });
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
+            navLinks.classList.remove("open");
+            navToggle.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("nav-open");
+        }
+    });
+}
 
 if (valueSection && slideTitle && slideDescription) {
     let valueSlideIndex = 0;
