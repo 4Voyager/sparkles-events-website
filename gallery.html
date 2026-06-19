@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore beautiful highlights, setups, and decorations from wedding events designed by Sparkles Events & Decor in Nairobi. View our wedding stories gallery.">
+    <meta name="keywords" content="wedding gallery, event portfolios, sparkles gallery, wedding stories, wedding decoration photos">
+    <title>Sparkles Events & Decor | Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <!-- =========================
+     NAVIGATION BAR
+========================= -->
+
+<header class="navbar">
+
+    <!-- Logo Section -->
+    <div class="logo">
+        <!-- Replace with your real logo image later -->
+        <a href="index.html">
+          <img src="assets/SparkelsLogo.png" alt="Company Logo">
+        </a>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links">
+
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="nav-cta">
+
+        <button onclick="window.location.href='contact.html'">Book Now</button>
+
+    </div>
+
+</header>
+
+<!-- ============================================
+     GALLERY HERO SECTION
+     - Full-width hero with background image
+     - Contains centered subheading and short description
+     - Background image can later be swapped for a video
+     ============================================ -->
+<section class="gallery-hero">
+
+  <!-- Dark overlay to improve text readability over the image -->
+  <div class="gallery-hero__overlay"></div>
+
+  <!-- Centered text content -->
+  <div class="gallery-hero__content">
+    <h2 class="gallery-hero__heading">Step Into Our World of Elegance</h2>
+    <p class="gallery-hero__text">
+      A curated visual journey through our most breathtaking events. 
+      Witness how we transform spaces into magnificent celebrations of love and luxury.
+    </p>
+  </div>
+
+</section>
+
+<!-- ============================================
+     IMAGE CAROUSEL SECTION
+     - Fan/stack layout with center-focused scaling
+     - Left and right arrows navigate through images
+     - Placeholders used; swap src values for real images
+     ============================================ -->
+<section class="carousel-section">
+
+  <!-- Section Title -->
+  <h2 class="carousel-section__title">Signature Masterpieces</h2>
+
+  <!-- Carousel Wrapper: clips overflow so only visible cards show -->
+  <div class="carousel-wrapper">
+
+    <!-- Left Arrow -->
+    <button class="carousel-arrow carousel-arrow--left" id="carousel-prev">&#8592;</button>
+
+    <!-- Track: holds all image cards, shifted by JS -->
+    <div class="carousel-track" id="carousel-track">
+
+      <div class="carousel-card" data-index="0">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding flowers decor">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="1">
+        <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=800&q=80" alt="Reception setup decoration">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="2">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=80" alt="Bridal gown close-up">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="3">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Wedding couple walking">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="4">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Outdoor ceremony setting">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="5">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Bridal bouquet hands">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+      <div class="carousel-card" data-index="6">
+        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=80" alt="Sparkling banquet reception table">
+        <div class="carousel-card__overlay"></div>
+      </div>
+
+    </div><!-- end .carousel-track -->
+
+    <!-- Right Arrow -->
+    <button class="carousel-arrow carousel-arrow--right" id="carousel-next">&#8594;</button>
+
+  </div><!-- end .carousel-wrapper -->
+
+</section>
+
+<!-- ============================================
+     FEATURED WEDDING STORIES SECTION
+     - Large featured video on the left (autoplay, muted)
+     - 3 smaller video thumbnails in a row on the right
+     - Clicking a small video swaps it to featured
+     - Left/right arrows below the small videos navigate through all videos
+     ============================================ -->
+<section class="stories-section">
+
+  <!-- Section Title -->
+  <h2 class="stories-section__title">Cinematic Wedding Stories</h2>
+
+  <!-- Main Stories Container -->
+  <div class="stories-container">
+
+    <!-- Featured Video (Left) -->
+    <div class="stories-featured">
+      <iframe
+        id="featured-iframe"
+        src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&enablejsapi=1"
+        title="Featured Wedding Story"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div><!-- end .stories-featured -->
+
+    <!-- Right Side: small videos row + arrows below -->
+    <div class="stories-right">
+
+      <!-- Small Videos Row — JS shows 3 at a time -->
+      <div class="stories-small-track" id="stories-small-track">
+
+        <div class="stories-small-card" data-index="0" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <!-- Overlay catches click events since iframe absorbs them -->
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="1" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="2" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 3"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="3" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 4"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="4" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 5"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="5" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 6"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+        <div class="stories-small-card" data-index="6" data-video-id="jNQXAC9IVRw">
+          <iframe
+            src="https://www.youtube.com/embed/jNQXAC9IVRw?mute=1&enablejsapi=1"
+            title="Wedding Story 7"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+          <div class="stories-small-card__overlay"></div>
+        </div>
+
+      </div><!-- end .stories-small-track -->
+
+      <!-- Arrows sit below the small video row, side by side -->
+      <div class="stories-arrows">
+        <button class="stories-arrow" id="stories-prev">&#8592;</button>
+        <button class="stories-arrow" id="stories-next">&#8594;</button>
+      </div>
+
+    </div><!-- end .stories-right -->
+
+  </div><!-- end .stories-container -->
+
+</section>
+
+<!-- ============================================
+     CONTACT INFO STRIP
+     - Centered layout, stacked vertically
+     - Company description > phone numbers > CTA buttons
+     ============================================ -->
+<section class="info-strip">
+
+  <!-- Short company description -->
+  <p class="info-strip__description">
+    Inspired by what you see? Let's bring your unique vision to life.
+  </p>
+
+  <!-- Two phone numbers side by side -->
+  <div class="info-strip__phones">
+    <a href="tel:+254723723837" class="info-strip__phone">+254 723 723 837</a>
+    <a href="tel:+254117665899" class="info-strip__phone">+254 117 665 899</a>
+  </div>
+
+  <!-- Primary and Secondary CTA buttons side by side -->
+  <div class="info-strip__buttons">
+    <a href="contact.html" class="btn btn--primary">Get In Touch</a>
+    <a href="https://wa.me/254117665899" target="_blank" class="btn btn--secondary">Chat on WhatsApp</a>
+  </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Sparkles Events & Decor. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
