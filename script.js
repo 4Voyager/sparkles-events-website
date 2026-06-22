@@ -246,8 +246,8 @@ if (smallTrack) {
 
     function swapToFeatured(card) {
       const videoId = card.getAttribute('data-video-id');
-      if (featuredIframe) {
-          featuredIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+      if (featuredIframe && videoId) {
+          featuredIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1`;
       }
     }
 
