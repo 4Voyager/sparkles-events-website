@@ -1,3886 +1,484 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
-/* ============================================================
-   OPTIMIZED & REORGANIZED VERSION
-   ------------------------------------------------------------
-   Changes:
-   - Preserved functionality and visual design
-   - Added maintenance header
-   - Prepared for future refactoring
-   - Original selectors retained to avoid breaking layout
-   ============================================================ */
-
-/* =========================
-   RESET DEFAULT STYLES
-========================= */
-
-:root {
-    --transition-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: none !important; /* Hide default cursor */
-}
-
-
-/* =========================
-   BODY STYLING
-========================= */
-
-body{
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 400;
-}
-
-
-/* =========================
-   NAVIGATION BAR
-========================= */
-
-.navbar{
-
-    /* Places items horizontally */
-    display: flex;
-
-    /* Pushes sections apart */
-    justify-content: space-between;
-
-    /* Aligns items vertically */
-    align-items: center;
-
-    /* Space inside navbar */
-    padding: 0px 60px;
-
-    /* Make sticky */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--color-bg);
-    height: 100px;
-
-}
-
-
-/* =========================
-   LOGO SECTION
-========================= */
-
-.logo img{
-
-    /* Placeholder logo size */
-    width: 180px;
-
-    /* Keeps image proportions correct */
-    height: auto;
-
-}
-
-
-/* =========================
-   NAVIGATION LINKS
-========================= */
-
-.nav-links{
-
-    /* Places links horizontally */
-    display: flex;
-
-    /* Space between links */
-    gap: 30px;
-
-}
-
-
-/* Navigation link styling */
-
-.nav-links a{
-
-    text-decoration: none;
-    color: black;
-
-}
-
-
-/* =========================
-   CTA BUTTON
-========================= */
-
-.nav-cta button{
-
-    padding: 10px 20px;
-    cursor: pointer;
-
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-
-.hero-section{
-
-    /* Creates 2-column layout */
-    display: flex;
-
-    /* Left and right sections take equal space */
-    justify-content: space-between;
-
-    /* Aligns items vertically */
-    align-items: center;
-
-    /* Full screen hero height */
-    min-height: 100vh;
-
-    /* Space around content */
-    padding: 0px 60px 60px 60px;
-
-    /* Space between left and right sides */
-    gap: 50px;
-
-}
-
-
-/* =========================
-   RIGHT SIDE - IMAGE AREA
-========================= */
-
-.hero-images{
-
-    /* Takes half the hero section */
-    flex: 1;
-
-    /* Places image columns side-by-side */
-    display: flex;
-
-    gap: 20px;
-
-    /* Crop the scrolling images within the hero section height */
-    height: 100vh;
-
-    overflow: hidden;
-
-}
-
-
-/* Individual image column */
-
-.image-column{
-
-    /* Viewport container for each track */
-    flex: 1;
-
-    height: 100%;
-
-    overflow: hidden;
-
-}
-
-
-/* The vertical track of images */
-
-.image-track{
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-
-/* Slider images */
-
-.image-track img{
-
-    width: 100%;
-
-    /* Placeholder image height */
-    height: 250px;
-
-    /* Prevents image stretching */
-    object-fit: cover;
-
-    border-radius: 10px;
-
-    /* Use margin-bottom to ensure mathematical loops work cleanly */
-    margin-bottom: 20px;
-
-}
-
-
-/* Scrolling Track Animations */
-
-.track-up{
-
-    animation: scroll-up 15s linear infinite;
-
-}
-
-.track-down{
-
-    animation: scroll-down 15s linear infinite;
-
-}
-
-
-/* Pause scroll animation on hover for interactive feel */
-
-.image-track:hover{
-
-    animation-play-state: paused;
-
-}
-
-
-@keyframes scroll-up {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-50%);
-    }
-}
-
-
-@keyframes scroll-down {
-    0% {
-        transform: translateY(-50%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================
-   LEFT SIDE - CONTENT AREA
-========================= */
-
-.hero-content{
-
-    /* Takes half the hero section */
-    flex: 1;
-
-    /* Stack content vertically */
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 30px;
-
-}
-
-
-/* Main Heading */
-
-.hero-content h1{
-
-    font-size: 60px;
-    line-height: 1.1;
-
-}
-
-
-/* Paragraph */
-
-.hero-content p{
-
-    font-size: 18px;
-    line-height: 1.6;
-
-}
-
-
-/* =========================
-   PHONE NUMBERS
-========================= */
-
-.hero-numbers{
-
-    display: flex;
-
-    gap: 20px;
-
-    font-weight: bold;
-
-}
-
-
-/* =========================
-   CTA BUTTONS
-========================= */
-
-.hero-buttons{
-
-    display: flex;
-
-    gap: 20px;
-
-}
-
-
-/* Button Styling */
-
-.hero-buttons button{
-
-    padding: 12px 24px;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   VALUE STATEMENT SECTION
-========================= */
-
-.value-section{
-
-    /* Allows absolute positioning inside */
-    position: relative;
-
-    /* Medium section height */
-    height: 650px;
-
-    /* Background image settings */
-    background-size: cover;
-    background-position: center;
-
-    /* Centers content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* Space inside section */
-    padding: 60px;
-
-    /* First background image */
-    background-image: url("https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&q=80");
-
-}
-
-
-/* =========================
-   DARK OVERLAY
-========================= */
-
-.value-overlay{
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.4);
-
-}
-
-
-/* =========================
-   CONTENT BOX
-========================= */
-
-.value-content{
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    max-width: 600px;
-
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 20px;
-
-}
-
-
-/* Main Heading */
-
-.value-content h2{
-
-    color: white;
-    font-size: 48px;
-    line-height: 1.2;
-
-}
-
-
-/* Paragraph */
-
-.value-content p{
-
-    font-size: 18px;
-    line-height: 1.6;
-
-}
-
-
-/* =========================
-   NAVIGATION DOTS
-========================= */
-
-.slider-dots{
-
-    position: absolute;
-
-    bottom: 40px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    gap: 15px;
-
-    z-index: 2;
-
-}
-
-
-/* Individual Dot */
-
-.dot{
-
-    width: 14px;
-    height: 14px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.5);
-
-    cursor: pointer;
-
-}
-
-
-/* Active Dot */
-
-.dot.active{
-
-    background: white;
-
-}
-
-/* =========================
-   SERVICES SECTION
-========================= */
-
-.services-section{
-
-    padding: 100px 60px;
-
-}
-
-
-/* =========================
-   SECTION INTRO
-========================= */
-
-.services-intro{
-
-    text-align: center;
-
-    max-width: 700px;
-
-    margin: 0 auto 60px auto;
-
-}
-
-
-.services-intro h2{
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.services-intro p{
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-}
-
-
-/* =========================
-   SERVICES CONTAINER
-========================= */
-
-.services-container{
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 40px;
-
-    flex-wrap: wrap;
-
-}
-
-
-/* =========================
-   SERVICE CARD
-========================= */
-
-.service-card{
-
-    /* Equal card width */
-    width: 320px;
-
-    /* Light background */
-    background: #f5f5f5;
-
-    padding: 40px;
-
-    border-radius: 12px;
-
-
-    /* Internal flexbox */
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-
-/* Service Title */
-
-.service-card h3{
-
-    margin-bottom: 25px;
-
-    font-size: 28px;
-
-}
-
-
-/* Bullet List */
-
-.service-card ul{
-
-    margin-left: 20px;
-
-    line-height: 2;
-
-    margin-bottom: 40px;
-
-}
-
-
-/* Push button to bottom */
-
-.service-card button{
-
-    margin-top: auto;
-
-    padding: 12px 20px;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   GALLERY SECTION
-========================= */
-
-.gallery-section{
-
-    padding: 100px 0;
-
-    overflow: hidden;
-
-}
-
-
-/* =========================
-   SECTION INTRO
-========================= */
-
-.gallery-intro{
-
-    max-width: 700px;
-
-    margin: 0 auto 60px auto;
-
-    text-align: center;
-
-    padding: 0 60px;
-
-}
-
-
-.gallery-intro h2{
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.gallery-intro p{
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-}
-
-
-/* =========================
-   SLIDER ROW
-========================= */
-
-.gallery-slider{
-
-    overflow: hidden;
-
-    margin-bottom: 40px;
-
-}
-
-
-/* =========================
-   SLIDER TRACK
-========================= */
-
-.gallery-track{
-
-    display: flex;
-
-    width: max-content;
-
-    gap: 20px;
-
-}
-
-
-/* =========================
-   IMAGE CONTAINER
-========================= */
-
-.gallery-image{
-
-    position: relative;
-
-    width: 220px;
-
-    height: 220px;
-
-    border-radius: 10%;
-
-    flex-shrink: 0;
-
-    overflow: hidden;
-
-}
-
-
-/* Overlay */
-
-.gallery-image::after{
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.15);
-
-}
-
-
-/* Actual Image */
-
-.gallery-image img{
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-
-/* =========================
-   RIGHT MOVING TRACK
-========================= */
-
-.track-right{
-
-    animation: moveRight 25s linear infinite;
-
-}
-
-
-/* =========================
-   LEFT MOVING TRACK
-========================= */
-
-.track-left{
-
-    animation: moveLeft 25s linear infinite;
-
-}
-
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes moveRight{
-
-    from{
-        transform: translateX(-50%);
-    }
-
-    to{
-        transform: translateX(0);
-    }
-
-}
-
-
-@keyframes moveLeft{
-
-    from{
-        transform: translateX(0);
-    }
-
-    to{
-        transform: translateX(-50%);
-    }
-
-}
-
-
-/* =========================
-   CTA BUTTON
-========================= */
-
-.gallery-cta{
-
-    max-width: 1400px;
-
-    margin: 40px auto 0 auto;
-
-    padding: 0 60px;
-
-    display: flex;
-
-    justify-content: flex-end;
-
-}
-
-
-.gallery-cta button{
-
-    padding: 14px 28px;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   TESTIMONIALS SECTION
-========================= */
-
-.testimonials-section{
-
-    padding: 120px 60px;
-
-}
-
-
-/* =========================
-   TESTIMONIAL CARD
-========================= */
-
-.testimonial-card{
-
-    /* Constrained readable width */
-    max-width: 750px;
-
-    /* Left aligned */
-    margin-bottom: 80px;
-
-    /* Card styling */
-    padding: 50px;
-
-    border: 1px solid #e0e0e0;
-
-    border-radius: 12px;
-
-    /* Prevent layout shifting */
-    min-height: 320px;
-
-    /* Fade animation */
-    transition: opacity 0.5s ease;
-
-}
-
-
-/* =========================
-   TESTIMONIAL HEADER
-========================= */
-
-.testimonial-header{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    margin-bottom: 30px;
-
-}
-
-
-/* Client Image */
-
-.testimonial-header img{
-
-    width: 80px;
-
-    height: 80px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-}
-
-
-/* Client Name */
-
-.testimonial-header h3{
-
-    font-size: 28px;
-
-}
-
-
-/* =========================
-   TESTIMONIAL TEXT
-========================= */
-
-.testimonial-card p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin-bottom: 30px;
-
-}
-
-
-/* =========================
-   STARS
-========================= */
-
-.testimonial-stars{
-
-    font-size: 24px;
-
-}
-
-
-/* =========================
-   CTA ROW
-========================= */
-
-.testimonial-cta-row{
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 40px;
-
-}
-
-
-/* CTA TEXT */
-
-.testimonial-cta-row p{
-
-    font-size: 22px;
-
-    max-width: 600px;
-
-    line-height: 1.5;
-
-}
-
-
-/* CTA BUTTON */
-
-.testimonial-cta-row button{
-
-    padding: 14px 28px;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-
-    padding: 30px;
-    text-align: center;
-
-}
-
-
-/* Copyright Text */
-
-.footer p{
-
-    font-size: 14px;
-
-}
-
-/* =========================
-   ABOUT HERO SECTION
-========================= */
-
-.about-hero{
-
-    position: relative;
-
-    height: 550px;
-
-    background-image: url("../assets/images/about-hero.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 60px;
-
-}
-
-
-/* =========================
-   OVERLAY
-========================= */
-
-.about-hero-overlay{
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    background: rgba(0,0,0,0.4);
-
-}
-
-
-/* =========================
-   CONTENT
-========================= */
-
-.about-hero-content{
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    max-width: 700px;
-
-    color: white;
-
-}
-
-
-/* Heading */
-
-.about-hero-content h1{
-
-    font-size: 52px;
-
-    margin-bottom: 25px;
-
-    color: white;
-
-}
-
-
-/* Paragraph */
-
-.about-hero-content p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-}
-
-/* =========================
-   MISSION & VISION SECTION
-========================= */
-
-.mission-vision-section{
-
-    padding: 120px 60px;
-
-}
-
-
-/* =========================
-   INDIVIDUAL BLOCK
-========================= */
-
-.mission-vision-block{
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 100px;
-
-    margin-bottom: 140px;
-
-}
-
-
-.mission-vision-block:last-child{
-
-    margin-bottom: 0;
-
-}
-
-
-/* =========================
-   CONTENT AREA
-========================= */
-
-.mission-content{
-
-    flex: 1;
-
-    max-width: 500px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-}
-
-
-/* Heading Row */
-
-.content-heading{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* Placeholder Icon */
-
-.content-icon{
-
-    width: 50px;
-
-    height: 50px;
-
-    border-radius: 50%;
-
-    background: #d9d9d9;
-
-}
-
-
-/* Heading */
-
-.content-heading h2{
-
-    font-size: 36px;
-
-}
-
-
-/* Paragraph */
-
-.mission-content p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================
-   IMAGE COLLAGE
-========================= */
-
-.image-collage{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 30px;
-
-}
-
-
-/* =========================
-   STACKED IMAGES
-========================= */
-
-.double-images{
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 30px;
-
-}
-
-
-/* =========================
-   IMAGE STYLES
-========================= */
-
-.image,
-.single-image{
-
-    width: 180px;
-
-    height: 180px;
-
-    background: #d9d9d9;
-
-}
-
-
-/* =========================
-   MISSION COLLAGE
-========================= */
-
-.mission-collage{
-
-    flex-direction: row;
-
-}
-
-
-/* =========================
-   VISION COLLAGE
-========================= */
-
-.vision-collage{
-
-    flex-direction: row;
-
-}
-
-/* ============================================
-   GALLERY HERO SECTION
-   - Full viewport-width hero block
-   - Uses a background image (swap src for video later)
-   - Overlay darkens image for text contrast
-   ============================================ */
-
-.gallery-hero {
-  position: relative;           /* Needed to position overlay and content inside */
-  width: 100%;
-  height: 420px;                /* Adjust height as needed */
-  background-image: url('images/gallery-hero.jpg'); /* Replace with your image path */
-  background-size: cover;       /* Image fills the section without stretching */
-  background-position: center;  /* Keeps the focal point centered */
-  display: flex;
-  align-items: center;          /* Vertically center content */
-  justify-content: center;      /* Horizontally center content */
-}
-
-/* Dark overlay sits on top of the image, behind the text */
-.gallery-hero__overlay {
-  position: absolute;
-  inset: 0;                     /* Shorthand for top/right/bottom/left: 0 */
-  background-color: rgba(0, 0, 0, 0.45); /* Adjust opacity to taste */
-}
-
-/* Text content sits above the overlay using z-index */
-.gallery-hero__content {
-  position: relative;
-  z-index: 1;                   /* Above the overlay */
-  text-align: center;
-  padding: 0 20px;              /* Side padding for smaller screens */
-  max-width: 600px;             /* Keeps text from spreading too wide */
-}
-
-.gallery-hero__heading {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 16px;
-}
-
-.gallery-hero__text {
-  font-size: 1rem;
-  color: #f0f0f0;
-  line-height: 1.7;
-}
-
-/* ============================================
-   IMAGE CAROUSEL SECTION
-   ============================================ */
-
-.carousel-section {
-  padding: 60px 0;
-  text-align: center;
-  background-color: #fff;
-}
-
-.carousel-section__title {
-  font-size: 1.8rem;
-  margin-bottom: 40px;
-  color: #222;
-}
-
-/* Outer wrapper: clips cards that are off-screen */
-.carousel-wrapper {
-  position: relative;
-  width: 100%;
-  height: 380px;             /* Height of the carousel area */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Track holds all cards in a row; JS moves this left/right */
-.carousel-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* ---- Individual Card ---- */
-.carousel-card {
-  position: absolute;        /* Each card is placed by JS */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 260px;              /* Base card width */
-  height: 320px;             /* Base card height */
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.4s ease; /* Smooth movement and scaling */
-  cursor: pointer;
-}
-
-.carousel-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;         /* Image fills card without distortion */
-  display: block;
-}
-
-/* Colored overlay so placeholders are visible before real images */
-.carousel-card__overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(180, 120, 60, 0.45); /* Warm gold tone */
-  pointer-events: none;      /* Overlay doesn't block clicks */
-}
-
-/* ---- Position & Scale Classes (applied by JS) ---- */
-
-/* Center card: largest, fully visible, no dim */
-.carousel-card.position-center {
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 340px;
-  z-index: 5;
-  opacity: 1;
-}
-/* Remove overlay on center card so it stands out */
-.carousel-card.position-center .carousel-card__overlay {
-  background-color: rgba(180, 120, 60, 0.15);
-}
-
-/* One step left of center */
-.carousel-card.position-left-1 {
-  left: calc(50% - 220px);
-  transform: translate(-50%, -50%) scale(0.85);
-  z-index: 4;
-  opacity: 0.9;
-}
-
-/* Two steps left of center */
-.carousel-card.position-left-2 {
-  left: calc(50% - 390px);
-  transform: translate(-50%, -50%) scale(0.7);
-  z-index: 3;
-  opacity: 0.75;
-}
-
-/* One step right of center */
-.carousel-card.position-right-1 {
-  left: calc(50% + 220px);
-  transform: translate(-50%, -50%) scale(0.85);
-  z-index: 4;
-  opacity: 0.9;
-}
-
-/* Two steps right of center */
-.carousel-card.position-right-2 {
-  left: calc(50% + 390px);
-  transform: translate(-50%, -50%) scale(0.7);
-  z-index: 3;
-  opacity: 0.75;
-}
-
-/* Cards beyond 2 steps are hidden off-screen */
-.carousel-card.position-hidden {
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ---- Arrow Buttons ---- */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;               /* Always above the cards */
-  background-color: rgba(255, 255, 255, 0.85);
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.carousel-arrow:hover {
-  background-color: #fff;
-}
-
-.carousel-arrow--left  { left: 16px; }
-.carousel-arrow--right { right: 16px; }
-
-/* ============================================
-   FEATURED WEDDING STORIES SECTION
-   ============================================ */
-
-.stories-section {
-  padding: 60px 40px;
-  background-color: #fff;
-  text-align: center;
-}
-
-.stories-section__title {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 40px;
-}
-
-/* Outer row: featured video left, right side right */
-.stories-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* ---- Featured Video (Left) ---- */
-.stories-featured {
-  flex: 0 0 680px;           /* Fixed width, does not shrink */
-  height: 383px;             /* 16:9 ratio for 680px width */
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #000;
-}
-
-.stories-featured iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* ---- Right Side: small track + arrows stacked vertically ---- */
-.stories-right {
-  display: flex;
-  flex-direction: column;    /* Stack track and arrows vertically */
-  align-items: center;
-  gap: 12px;
-}
-
-/* Clips the small track so only 3 cards show at a time */
-.stories-small-track {
-  display: flex;
-  flex-direction: row;       /* Cards sit in a horizontal row */
-  gap: 10px;
-  overflow: hidden;          /* Hides cards outside the visible 3 */
-  width: 372px;              /* Exactly 3 cards + 2 gaps: (117*3) + (10*2) */
-}
-
-/* ---- Small Video Card ---- */
-.stories-small-card {
-  position: relative;        /* For overlay positioning */
-  flex: 0 0 117px;           /* Fixed width, does not shrink or grow */
-  height: 200px;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: #000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.stories-small-card:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-.stories-small-card iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;      /* Iframe doesn't capture clicks — overlay does */
-}
-
-/* Transparent overlay catches click events on small cards */
-.stories-small-card__overlay {
-  position: absolute;
-  inset: 0;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-/* ---- Arrows Row (below small videos) ---- */
-.stories-arrows {
-  display: flex;
-  flex-direction: row;       /* Left and right arrows side by side */
-  gap: 10px;
-}
-
-.stories-arrow {
-  background-color: rgba(255, 255, 255, 0.85);
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.stories-arrow:hover {
-  background-color: #fff;
-}
-
-/* ============================================
-   CONTACT INFO STRIP
-   - All content centered and stacked vertically
-   - Description > phone numbers > CTA buttons
-   ============================================ */
-
-.info-strip {
-  display: flex;
-  flex-direction: column;     /* Stack all three blocks vertically */
-  align-items: center;        /* Center everything horizontally */
-  justify-content: center;
-  padding: 60px 40px;
-  gap: 20px;                  /* Space between description, phones, buttons */
-  background-color: #fff;
-}
-
-/* ---- Company Description ---- */
-.info-strip__description {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 400px;           /* Keeps text from spreading too wide */
-}
-
-/* ---- Phone Numbers ---- */
-.info-strip__phones {
-  display: flex;
-  flex-direction: row;        /* Two numbers side by side */
-  gap: 32px;                  /* Space between the two numbers */
-}
-
-.info-strip__phone {
-  font-size: 0.95rem;
-  color: #222;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.info-strip__phone:hover {
-  color: #b47c3c;             /* Warm gold tone to match site accent */
-}
-
-/* ---- CTA Buttons ---- */
-.info-strip__buttons {
-  display: flex;
-  flex-direction: row;        /* Two buttons side by side */
-  gap: 12px;
-}
-
-/* Shared button base styles */
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  cursor: pointer;
-}
-
-/* Primary CTA — solid filled */
-.btn--primary {
-  background-color: #b47c3c;
-  color: #fff;
-  border: 2px solid #b47c3c;
-}
-
-.btn--primary:hover {
-  background-color: #9a6830;
-  border-color: #9a6830;
-}
-
-/* Secondary CTA — outline style */
-.btn--secondary {
-  background-color: transparent;
-  color: #b47c3c;
-  border: 2px solid #b47c3c;
-}
-
-.btn--secondary:hover {
-  background-color: #b47c3c;
-  color: #fff;
-}
-
-/* ============================================
-   CONTACT PAGE STYLES
-   ============================================ */
-
-/* ---- Section wrapper ---- */
-.contact-section {
-  padding: 60px 40px;
-  background-color: #fff;
-}
-
-/* ---- Two column container ---- */
-.contact-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;           /* Both sides match height */
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* ---- Left Side: Form ---- */
-.contact-form-side {
-  flex: 1;                        /* Takes equal share of space */
-}
-
-/* Visible card with shadow */
-.contact-form-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  padding: 40px;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.contact-form-card__title {
-  font-size: 1.6rem;
-  color: #222;
-  margin-bottom: 8px;
-}
-
-.contact-form-card__subtitle {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-
-/* ---- Form Groups ---- */
-.form-group {
-  position: relative;             /* For date label positioning */
-  margin-bottom: 16px;
-}
-
-/* Shared input styles */
-.form-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #222;
-  background-color: #fafafa;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease;
-  outline: none;
-}
-
-.form-input:focus {
-  border-color: #b47c3c;          /* Gold accent on focus */
-  background-color: #fff;
-}
-
-/* Textarea specific */
-.form-input--textarea {
-  resize: vertical;               /* User can resize vertically only */
-  min-height: 120px;
-}
-
-/* Date input — hide the default placeholder and show custom label */
-.form-input--date {
-  color: #222;
-}
-
-/* Custom date placeholder label */
-.form-input__date-label {
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-  font-size: 0.95rem;
-  color: #999;
-  pointer-events: none;           /* Label doesn't block input clicks */
-  transition: opacity 0.2s ease;
-}
-
-/* Hide custom label once a date is selected */
-input[type="date"]:valid + .form-input__date-label {
-  opacity: 0;
-}
-
-/* ---- Submit Button ---- */
-.btn--full {
-  width: 100%;                    /* Button stretches full width of form */
-  padding: 14px;
-  font-size: 1rem;
-  border: none;
-  margin-top: 8px;
-  cursor: pointer;
-}
-
-/* ---- 24hr Assurance Text ---- */
-.contact-form-card__assurance {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #888;
-  margin-top: 12px;
-}
-
-/* ---- Success Message ---- */
-.form-success {
-  display: none;                  /* Hidden by default */
-  margin-top: 16px;
-  padding: 14px;
-  background-color: #eaf7ea;
-  border: 1px solid #a3d9a5;
-  border-radius: 8px;
-  color: #2d6a2d;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* ---- Error Message ---- */
-.form-error {
-  display: none;                  /* Hidden by default */
-  margin-top: 16px;
-  padding: 14px;
-  background-color: #fdecea;
-  border: 1px solid #f5a9a9;
-  border-radius: 8px;
-  color: #a02020;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* ---- Right Side: Map ---- */
-.contact-map-side {
-  flex: 1;                        /* Takes equal share of space */
-}
-
-.contact-map {
-  width: 100%;
-  height: 100%;
-  min-height: 480px;              /* Ensures map has height even if form is short */
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-}
-
-.contact-map iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* =========================
-   CORE VALUES SECTION
-========================= */
-
-.core-values-section{
-
-    padding: 120px 60px;
-
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.core-values-intro{
-
-    max-width: 700px;
-
-    margin: 0 auto 80px auto;
-
-    text-align: center;
-
-}
-
-
-.core-values-intro h2{
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.core-values-intro p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================
-   ROWS
-========================= */
-
-.values-row{
-
-    display: flex;
-
-    justify-content: center;
-
-}
-
-
-.top-row{
-
-    margin-bottom: 50px;
-
-}
-
-
-.middle-row{
-
-    gap: 80px;
-
-    margin-bottom: 50px;
-
-}
-
-
-/* =========================
-   VALUE CARD
-========================= */
-
-.value-card{
-
-    width: 320px;
-
-    min-height: 300px;
-
-    padding: 40px;
-
-    border: 1px solid #e0e0e0;
-
-    border-radius: 12px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
-}
-
-
-/* =========================
-   ICON
-========================= */
-
-.value-icon{
-
-    width: 60px;
-
-    height: 60px;
-
-    border-radius: 50%;
-
-    background: #d9d9d9;
-
-    margin-bottom: 25px;
-
-}
-
-
-/* =========================
-   HEADING
-========================= */
-
-.value-card h3{
-
-    font-size: 24px;
-
-    margin-bottom: 20px;
-
-}
-
-
-/* =========================
-   PARAGRAPH
-========================= */
-
-.value-card p{
-
-    line-height: 1.8;
-
-}
-
-/* =========================
-   OUR STORY SECTION
-========================= */
-
-.our-story-section{
-
-    padding: 120px 60px;
-
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.our-story-intro{
-
-    text-align: center;
-
-    max-width: 700px;
-
-    margin: 0 auto 100px auto;
-
-}
-
-
-.story-icon{
-
-    width: 60px;
-
-    height: 60px;
-
-    border-radius: 50%;
-
-    background: #d9d9d9;
-
-    margin: 0 auto 25px auto;
-
-}
-
-
-.our-story-intro h2{
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.our-story-intro p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================
-   TIMELINE CONTAINER
-========================= */
-
-.timeline{
-
-    position: relative;
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-}
-
-
-/* CENTER LINE */
-
-.timeline::before{
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 0;
-
-    width: 2px;
-
-    height: 100%;
-
-    background: #d9d9d9;
-
-    transform: translateX(-50%);
-
-}
-
-
-/* =========================
-   TIMELINE ITEM
-========================= */
-
-.timeline-item{
-
-    display: grid;
-
-    grid-template-columns: 1fr 20px 1fr;
-
-    align-items: center;
-
-    margin-bottom: 80px;
-
-    position: relative;
-
-}
-
-
-/* =========================
-   DOT
-========================= */
-
-.timeline-marker{
-
-    width: 20px;
-
-    height: 20px;
-
-    border-radius: 50%;
-
-    background: #d9d9d9;
-
-    grid-column: 2;
-
-    justify-self: center;
-
-    z-index: 2;
-
-}
-
-
-/* =========================
-   CONTENT
-========================= */
-
-.timeline-content{
-
-    max-width: 450px;
-
-}
-
-
-/* =========================
-   LEFT ITEMS
-========================= */
-
-.timeline-item.left .timeline-content{
-
-    grid-column: 1;
-
-    justify-self: end;
-
-    text-align: right;
-
-    padding-right: 40px;
-
-}
-
-
-/* =========================
-   RIGHT ITEMS
-========================= */
-
-.timeline-item.right .timeline-content{
-
-    grid-column: 3;
-
-    justify-self: start;
-
-    text-align: left;
-
-    padding-left: 40px;
-
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.timeline-header{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* LEFT ALIGNMENT */
-
-.timeline-item.left .timeline-header{
-
-    justify-content: flex-end;
-
-}
-
-
-/* RIGHT ALIGNMENT */
-
-.timeline-item.right .timeline-header{
-
-    justify-content: flex-start;
-
-}
-
-
-/* DATE */
-
-.timeline-date{
-
-    font-weight: bold;
-
-}
-
-
-/* TITLE */
-
-.timeline-header h3{
-
-    font-size: 24px;
-
-}
-
-
-/* DESCRIPTION */
-
-.timeline-content p{
-
-    line-height: 1.8;
-
-}
-
-/* =========================
-   BY THE NUMBERS SECTION
-========================= */
-
-.numbers-section{
-
-    padding: 120px 60px;
-
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.numbers-intro{
-
-    max-width: 700px;
-
-    margin: 0 auto 80px auto;
-
-    text-align: center;
-
-}
-
-
-.numbers-intro h2{
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.numbers-intro p{
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================
-   STATS GRID
-========================= */
-
-.stats-grid{
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 40px;
-
-    flex-wrap: wrap;
-
-}
-
-
-/* =========================
-   CARD
-========================= */
-
-.stat-card{
-
-    width: 260px;
-
-    min-height: 220px;
-
-    border: 1px solid #e0e0e0;
-
-    border-radius: 12px;
-
-    padding: 30px;
-
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.stat-header{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 40px;
-
-}
-
-
-/* ICON */
-
-.stat-icon{
-
-    width: 45px;
-
-    height: 45px;
-
-    border-radius: 50%;
-
-    background: #d9d9d9;
-
-}
-
-
-/* HEADING */
-
-.stat-header h3{
-
-    font-size: 22px;
-
-}
-
-
-/* =========================
-   NUMBER
-========================= */
-
-.stat-number{
-
-    font-size: 56px;
-
-    font-weight: bold;
-
-    line-height: 1;
-
-}
-/* =====================================================
-   =====================================================
-   PURPLE • GOLD • WHITE GLASS THEME
-   Added on top of the existing styles above.
-   Everything below this line restyles the site without
-   touching the layout rules already written.
-   ===================================================== */
-
-/* ---- Display font for headings, keeps Arial for body ---- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap');
-
-:root{
-
-    /* Purple family */
-    --plum-950: #2a0e4a;   /* deepest purple - navbar, footer, overlays */
-    --plum-800: #3f1768;   /* secondary deep purple */
-    --plum-600: #6c2bbf;   /* primary brand purple */
-    --plum-400: #9b5fd1;   /* lighter accent purple */
-    --plum-200: #d9bdf0;   /* pale lilac, used sparingly */
-
-    /* Gold family */
-    --gold-600: #a9822c;   /* deep gold for text-on-light */
-    --gold-500: #d4af37;   /* main gold accent */
-    --gold-300: #f1da7e;   /* light gold / shimmer */
-
-    /* Neutrals */
-    --paper: #ffffff;
-    --ink:   #221331;      /* near-black ink with a purple cast */
-
-    /* Glass building blocks */
-    --glass-light: rgba(255, 255, 255, 0.50);
-    --glass-light-strong: rgba(255, 255, 255, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.55);
-    --glass-dark: rgba(246, 241, 252, 0.55);
-    --glass-dark-border: rgba(212, 175, 55, 0.30);
-
-}
-
-
-/* =========================
-   AMBIENT BACKGROUND
-   Soft purple + gold blobs that sit fixed behind every
-   page so the glass cards have color to pick up.
-========================= */
-
-body{
-
-    position: relative;
-    background-color: var(--paper);
-    font-family: 'Poppins', Arial, sans-serif;
-    color: var(--ink);
-
-}
-
-body::before{
-
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background:
-        radial-gradient(circle at 8% 12%,  rgba(108, 43, 191, 0.30), transparent 38%),
-        radial-gradient(circle at 92% 8%,  rgba(212, 175, 55, 0.28), transparent 35%),
-        radial-gradient(circle at 85% 85%, rgba(108, 43, 191, 0.22), transparent 40%),
-        radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.20), transparent 38%);
-
-    filter: blur(40px);
-
-}
-
-/* Headings pick up the display face + ink color */
-h1, h2, h3{
-    font-family: 'Playfair Display', serif;
-    color: var(--ink);
-}
-
-/* Sections that were painted solid white now let the
-   ambient background show through behind their glass cards */
-.carousel-section,
-.stories-section,
-.info-strip,
-.contact-section{
-    background-color: transparent;
-}
-
-
-/* =========================
-   STICKY GLASS NAVIGATION BAR
-========================= */
-
-.navbar{
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: var(--glass-dark);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-
-    border-bottom: 1px solid var(--glass-dark-border);
-    box-shadow: 0 8px 30px rgba(238, 236, 241, 0.18);
-
-}
-
-.nav-links a{
-    color: #000000;
-    font-weight: 500;
-    transition: color 0.25s ease;
-}
-
-.nav-links a:hover{
-    color: var(--gold-300);
-}
-
-.nav-cta button{
-    background: linear-gradient(135deg, var(--gold-500), var(--gold-300));
-    color: var(--plum-950);
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.nav-cta button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45);
-}
-
-
-/* =========================
-   GLASS CARD TREATMENT
-   Applied to every card-style component across all pages
-========================= */
-
-.service-card,
-.value-card,
-.stat-card,
-.testimonial-card,
-.contact-form-card{
-
-    background: var(--glass-light);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-
-    border: 1px solid var(--glass-border);
-    border-radius: 18px;
-
-    box-shadow: 0 10px 34px rgba(63, 23, 104, 0.16),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-
-}
-
-.service-card:hover,
-.value-card:hover,
-.stat-card:hover{
-    transform: translateY(-8px);
-    border-color: var(--gold-500);
-    box-shadow: 0 16px 40px rgba(63, 23, 104, 0.22),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-/* Icons that used to be flat grey circles now carry the brand gradient */
-.value-icon,
-.story-icon,
-.stat-icon,
-.content-icon{
-    background: linear-gradient(135deg, var(--plum-600), var(--gold-500));
-}
-
-/* Stat numbers in gold */
-.stat-number{
-    background: linear-gradient(135deg, var(--plum-600), var(--gold-600));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Timeline recolor */
-.timeline::before{
-    background: linear-gradient(180deg, var(--plum-400), var(--gold-500));
-}
-
-.timeline-marker{
-    background: var(--gold-500);
-    box-shadow: 0 0 0 4px rgba(255,255,255,0.7), 0 0 0 6px var(--plum-400);
-}
-
-.timeline-date{
-    color: var(--plum-600);
-}
-
-/* Slider dots */
-.dot{
-    background: rgba(108, 43, 191, 0.3);
-}
-
-.dot.active{
-    background: var(--gold-500);
-}
-
-
-/* =========================
-   HERO / SECTION OVERLAYS
-   Recolored from black to a purple wash so every
-   photo section feels part of the same palette
-========================= */
-
-.about-hero-overlay,
-.gallery-hero__overlay{
-    background: linear-gradient(180deg, rgba(42, 14, 74, 0.55), rgba(42, 14, 74, 0.78));
-}
-
-.value-overlay{
-    background: linear-gradient(180deg, rgba(42, 14, 74, 0.35), rgba(42, 14, 74, 0.7));
-}
-
-.carousel-card__overlay{
-    background-color: rgba(108, 43, 191, 0.40);
-}
-
-.carousel-card.position-center .carousel-card__overlay{
-    background-color: rgba(212, 175, 55, 0.18);
-}
-
-
-/* =========================
-   BUTTONS
-   All primary buttons now share the gold-on-purple
-   treatment; outline buttons pick up purple or gold
-   depending on what they sit on.
-========================= */
-
-.hero-buttons .primary-btn,
-.gallery-cta button,
-.testimonial-cta-row button,
-.service-card button,
-.btn--primary,
-.btn--full{
-    background: linear-gradient(135deg, var(--gold-500), var(--gold-300));
-    color: var(--plum-950);
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-buttons .primary-btn:hover,
-.gallery-cta button:hover,
-.testimonial-cta-row button:hover,
-.service-card button:hover,
-.btn--primary:hover,
-.btn--full:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(212, 175, 55, 0.45);
-}
-
-.hero-buttons .secondary-btn{
-    background: transparent;
-    color: #ffffff;
-    border: 2px solid var(--gold-500);
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background 0.2s ease;
-}
-
-.hero-buttons .secondary-btn:hover{
-    background: rgba(212, 175, 55, 0.15);
-}
-
-.btn--secondary{
-    background-color: transparent;
-    color: var(--plum-600);
-    border: 2px solid var(--plum-600);
-}
-
-.btn--secondary:hover{
-    background-color: var(--plum-600);
-    color: #ffffff;
-}
-
-.info-strip__phone:hover{
-    color: var(--gold-600);
-}
-
-
-/* =========================
-   GLASS FORM INPUTS (contact page)
-========================= */
-
-.form-input{
-    background-color: var(--glass-light);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(108, 43, 191, 0.20);
-}
-
-.form-input:focus{
-    border-color: var(--gold-500);
-    background-color: var(--glass-light-strong);
-}
-
-.contact-map{
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 10px 34px rgba(63, 23, 104, 0.16);
-}
-
-.form-success{
-    background-color: rgba(108, 43, 191, 0.08);
-    border: 1px solid var(--plum-400);
-    color: var(--plum-800);
-}
-
-.form-error{
-    background-color: rgba(212, 175, 55, 0.10);
-    border: 1px solid var(--gold-500);
-    color: var(--gold-600);
-}
-
-
-/* =========================
-   TESTIMONIAL STARS
-========================= */
-
-.testimonial-stars{
-    color: var(--gold-500);
-}
-
-
-/* =========================
-   GLASS VIDEO / GALLERY CARDS
-========================= */
-
-.stories-small-card,
-.contact-form-card,
-.stories-featured{
-    border: 1px solid var(--glass-border);
-}
-
-.carousel-arrow,
-.stories-arrow{
-    background-color: var(--glass-light-strong);
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--glass-border);
-    color: var(--plum-800);
-}
-
-.carousel-arrow:hover,
-.stories-arrow:hover{
-    background-color: #ffffff;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-    background: linear-gradient(135deg, var(--plum-950), var(--plum-800));
-    border-top: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.footer p{
-    color: rgba(255, 255, 255, 0.85);
-}
-
-/* =========================================
-   PROFESSIONAL DESIGN OVERRIDES & MICRO-INTERACTIONS
-========================================= */
-
-/* Button Micro-Interactions */
-button, .btn {
-    transition: all var(--transition-fast) !important;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px !important;
-}
-
-button:hover, .btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Service Cards Micro-Interactions */
-.service-card {
-    transition: all var(--transition-fast);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-/* Nav Links Micro-Interactions */
-.nav-links a {
-    position: relative;
-    padding-bottom: 5px;
-    transition: color var(--transition-fast);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: currentColor;
-    transition: width var(--transition-fast);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Gallery Images Micro-Interactions */
-.gallery-image img {
-    transition: transform var(--transition-slow);
-}
-
-.gallery-image:hover img {
-    transform: scale(1.1);
-}
-
-/* Spacing Fixes for Desktop */
-@media (min-width: 992px) {
-    .hero-section {
-        padding: 0px 8% 120px 8% !important;
-        gap: 80px !important;
-    }
-    
-    .navbar {
-        padding: 10px 8% !important;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background-color: var(--color-bg);
-    }
-    
-    .services-section, .gallery-section, .testimonials-section {
-        padding: 120px 8% !important;
-    }
-    
-    .contact-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 60px !important;
-    }
-}
-
-/* Custom Cursor Styles */
-.cursor-dot {
-    width: 9px;
-    height: 9px;
-    background-color: var(--plum-800, #6c2bbf);
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform var(--transition-fast), background-color var(--transition-fast);
-}
-
-.cursor-outline {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0) 60%);
-    border: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width var(--transition-fast), height var(--transition-fast), background var(--transition-fast);
-}
-
-.cursor-hover.cursor-dot {
-    transform: translate(-50%, -50%) scale(0.1);
-}
-
-.cursor-hover.cursor-outline {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0) 60%);
-}
-
-/* =========================================
-   CINEMATIC WEDDING STORIES SECTION
-========================================= */
-
-.stories-section {
-    padding: 120px 8%;
-    background-color: var(--color-bg);
-}
-
-.stories-section__title {
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 60px;
-    color: var(--color-text);
-}
-
-.stories-container {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.stories-featured {
-    flex: 2;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.stories-featured iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.stories-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.stories-small-track {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-.stories-small-track::-webkit-scrollbar {
-    display: none;
-}
-
-.stories-small-card {
-    position: relative;
-    min-width: 117px;
-    width: 117px;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-}
-
-.stories-small-card:hover {
-    transform: scale(1.05);
-}
-
-.stories-small-card iframe {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    border: none;
-}
-
-.stories-small-card__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.2);
-    transition: background var(--transition-fast);
-    z-index: 2;
-}
-
-.stories-small-card:hover .stories-small-card__overlay {
-    background: rgba(0,0,0,0);
-}
-
-.stories-arrows {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.stories-arrow {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--color-primary);
-    background: transparent;
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-}
-
-.stories-arrow:hover {
-    background: var(--color-primary);
-    color: #fff;
-    transform: scale(1.1);
-}
-
-@media (max-width: 991px) {
-    .stories-container {
-        flex-direction: column;
-    }
-}
-
-/* =========================================
-   SCROLL ANIMATIONS & FADE-INS
-========================================= */
-
-.testimonial-card {
-    transition: opacity 0.5s ease-in-out;
-}
-
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-up {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   =====================================================
-   RESPONSIVE OVERHAUL
-   Mobile nav, fluid type, and breakpoint fixes for every
-   page. Written last so it wins the cascade.
-   ===================================================== */
-
-/* ---------------------------------------------
-   MOBILE NAV TOGGLE (hamburger)
---------------------------------------------- */
-
-.nav-toggle{
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-.nav-toggle span{
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--ink, #221331);
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-toggle.active span:nth-child(1){
-    transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle.active span:nth-child(2){
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3){
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Prevent background scroll while the mobile menu is open */
-body.nav-open{
-    overflow: hidden;
-}
-
-/* ---------------------------------------------
-   LARGE TABLET / SMALL DESKTOP (<=1100px)
---------------------------------------------- */
-
-@media (max-width: 1100px){
-
-    .navbar{
-        padding: 0px 30px !important;
-    }
-
-    .hero-section{
-        padding: 0px 30px 60px 30px !important;
-        gap: 30px !important;
-    }
-
-    .hero-content h1{
-        font-size: 46px;
-    }
-
-    .services-section,
-    .gallery-section,
-    .testimonials-section,
-    .mission-vision-section,
-    .core-values-section,
-    .our-story-section,
-    .numbers-section{
-        padding: 90px 30px !important;
-    }
-
-    .stories-section{
-        padding: 60px 30px;
-    }
-
-    .stories-featured{
-        flex: 1 1 0;
-    }
-
-    .mission-vision-block{
-        gap: 50px;
-    }
-}
-
-/* ---------------------------------------------
-   TABLET / MOBILE (<=900px)
-   Nav becomes a hamburger-triggered panel here,
-   and most multi-column layouts begin stacking.
---------------------------------------------- */
-
-@media (max-width: 900px){
-
-    /* ----- NAV ----- */
-
-    .navbar{
-        padding: 0 20px !important;
-        height: 80px;
-    }
-
-    .logo img{
-        width: 140px;
-    }
-
-    .nav-toggle{
-        display: flex;
-    }
-
-    .nav-menu{
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--glass-dark, rgba(246, 241, 252, 0.97));
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        transform: translateX(100%);
-        transition: transform 0.35s ease;
-        z-index: 1000;
-        overflow-y: auto;
-        padding: 40px 20px;
-    }
-
-    .nav-menu.active{
-        transform: translateX(0);
-    }
-
-    .nav-links{
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
-    }
-
-    .nav-links a{
-        font-size: 20px;
-    }
-
-    .nav-cta button{
-        padding: 14px 32px;
-        font-size: 16px;
-    }
-
-    /* ----- HERO ----- */
-    /* Full hero layout (SVG illustration backdrop, sparkle
-       interaction) is handled in the dedicated "MOBILE HERO"
-       block further down. */
-
-    .hero-content h1{
-        font-size: 38px;
-    }
-
-    .hero-numbers,
-    .hero-buttons{
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* ----- VALUE STATEMENT ----- */
-
-    .value-section{
-        height: auto;
-        min-height: 480px;
-        padding: 40px 24px;
-    }
-
-    .value-content h2{
-        font-size: 34px;
-    }
-
-    /* ----- SERVICES ----- */
-
-    .services-section{
-        padding: 70px 24px !important;
-    }
-
-    .services-intro h2,
-    .gallery-intro h2,
-    .core-values-intro h2,
-    .our-story-intro h2,
-    .numbers-intro h2{
-        font-size: 32px;
-    }
-
-    .services-container{
-        gap: 24px;
-    }
-
-    .service-card{
-        width: 100%;
-        max-width: 400px;
-    }
-
-    /* ----- GALLERY (homepage strip) ----- */
-
-    .gallery-image{
-        width: 160px;
-        height: 160px;
-    }
-
-    /* ----- TESTIMONIALS ----- */
-
-    .testimonials-section{
-        padding: 70px 24px !important;
-    }
-
-    .testimonial-card{
-        padding: 32px;
-        margin-bottom: 50px;
-    }
-
-    .testimonial-cta-row{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    /* ----- ABOUT HERO ----- */
-
-    .about-hero{
-        height: auto;
-        min-height: 420px;
-        padding: 40px 24px;
-    }
-
-    .about-hero-content h1{
-        font-size: 36px;
-    }
-
-    /* ----- MISSION / VISION ----- */
-
-    .mission-vision-section{
-        padding: 70px 24px !important;
-    }
-
-    .mission-vision-block{
-        flex-direction: column;
-        gap: 40px;
-        margin-bottom: 90px;
-        text-align: center;
-    }
-
-    .mission-vision-block .image-collage{
-        order: -1;
-    }
-
-    .mission-content{
-        max-width: 100%;
-        align-items: center;
-    }
-
-    .content-heading{
-        justify-content: center;
-    }
-
-    .image-collage{
-        transform: scale(0.8);
-    }
-
-    /* ----- CORE VALUES ----- */
-
-    .core-values-section{
-        padding: 70px 24px !important;
-    }
-
-    .values-row,
-    .middle-row{
-        flex-wrap: wrap;
-        gap: 24px !important;
-    }
-
-    .value-card{
-        width: 100%;
-        max-width: 340px;
-    }
-
-    /* ----- OUR STORY / TIMELINE ----- */
-
-    .our-story-section{
-        padding: 70px 24px !important;
-    }
-
-    .timeline::before{
-        left: 20px;
-    }
-
-    .timeline-item{
-        grid-template-columns: 40px 1fr;
-        margin-bottom: 50px;
-    }
-
-    .timeline-marker{
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .timeline-item.left .timeline-content,
-    .timeline-item.right .timeline-content{
-        grid-column: 2;
-        justify-self: start;
-        text-align: left;
-        padding-left: 24px;
-        padding-right: 0;
-    }
-
-    .timeline-item.left .timeline-header,
-    .timeline-item.right .timeline-header{
-        justify-content: flex-start;
-    }
-
-    /* ----- STATS ----- */
-
-    .numbers-section{
-        padding: 70px 24px !important;
-    }
-
-    .stat-card{
-        width: 100%;
-        max-width: 280px;
-    }
-
-    /* ----- GALLERY PAGE ----- */
-
-    .gallery-hero{
-        height: 320px;
-    }
-
-    .gallery-hero__heading{
-        font-size: 1.6rem;
-    }
-
-    .carousel-wrapper{
-        height: 300px;
-    }
-
-    .carousel-card{
-        width: 200px;
-        height: 250px;
-    }
-
-    .carousel-card.position-center{
-        width: 220px;
-        height: 270px;
-    }
-
-    .carousel-card.position-left-1{
-        left: calc(50% - 160px);
-    }
-
-    .carousel-card.position-left-2{
-        left: calc(50% - 280px);
-    }
-
-    .carousel-card.position-right-1{
-        left: calc(50% + 160px);
-    }
-
-    .carousel-card.position-right-2{
-        left: calc(50% + 280px);
-    }
-
-    /* ----- CINEMATIC STORIES ----- */
-
-    .stories-section{
-        padding: 60px 20px;
-    }
-
-    .stories-container{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .stories-featured{
-        flex: none;
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 16 / 9;
-    }
-
-    .stories-right{
-        width: 100%;
-        max-width: 600px;
-        align-items: stretch;
-    }
-
-    .stories-small-track{
-        width: 100%;
-    }
-
-    /* ----- CONTACT PAGE ----- */
-
-    .contact-section{
-        padding: 50px 20px;
-    }
-
-    .contact-container{
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .contact-map{
-        min-height: 320px;
-    }
-
-    .info-strip{
-        padding: 50px 24px;
-    }
-
-    /* Custom cursor doesn't make sense on touch devices */
-    .cursor-dot,
-    .cursor-outline{
-        display: none;
-    }
-
-    *{
-        cursor: auto !important;
-    }
-
-    a, button, .service-card, .gallery-image, .dot, .nav-toggle{
-        cursor: pointer !important;
-    }
-}
-
-/* ---------------------------------------------
-   SMALL PHONES (<=600px)
---------------------------------------------- */
-
-@media (max-width: 600px){
-
-    .hero-content h1{
-        font-size: 30px;
-    }
-
-    .hero-content p{
-        font-size: 16px;
-    }
-
-    .value-content h2{
-        font-size: 26px;
-    }
-
-    .services-intro h2,
-    .gallery-intro h2,
-    .core-values-intro h2,
-    .our-story-intro h2,
-    .numbers-intro h2,
-    .stories-section__title,
-    .carousel-section__title{
-        font-size: 26px;
-    }
-
-    .about-hero-content h1{
-        font-size: 28px;
-    }
-
-    .content-heading h2{
-        font-size: 28px;
-    }
-
-    .image-collage{
-        transform: scale(0.65);
-        margin: -30px 0;
-    }
-
-    .timeline-header h3{
-        font-size: 20px;
-    }
-
-    .stat-number{
-        font-size: 44px;
-    }
-
-    .testimonial-header img{
-        width: 60px;
-        height: 60px;
-    }
-
-    .testimonial-header h3{
-        font-size: 22px;
-    }
-
-    .carousel-card{
-        width: 170px;
-        height: 220px;
-    }
-
-    .carousel-card.position-center{
-        width: 190px;
-        height: 240px;
-    }
-
-    .carousel-card.position-left-1{
-        left: calc(50% - 130px);
-    }
-
-    .carousel-card.position-left-2{
-        left: calc(50% - 230px);
-    }
-
-    .carousel-card.position-right-1{
-        left: calc(50% + 130px);
-    }
-
-    .carousel-card.position-right-2{
-        left: calc(50% + 230px);
-    }
-
-    .info-strip__phones{
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-    }
-
-    .info-strip__buttons{
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .info-strip__buttons .btn{
-        text-align: center;
-        width: 100%;
-    }
-
-    .contact-form-card{
-        padding: 28px 22px;
-    }
-}
-
-/* =====================================================
-   CUSTOM SVG ICON BADGES
-   The grey placeholder circles now hold meaningful
-   inline SVGs on the gradient badge background.
-   ===================================================== */
-
-.content-icon,
-.value-icon,
-.story-icon,
-.stat-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 6px 16px rgba(108, 43, 191, 0.25);
-}
-
-.content-icon svg,
-.value-icon svg,
-.story-icon svg,
-.stat-icon svg{
-    width: 50%;
-    height: 50%;
-}
-
-.value-icon svg{
-    width: 46%;
-    height: 46%;
-}
-
-/* ---------------------------------------------
-   ARROW BUTTON SVGs (carousel + stories)
---------------------------------------------- */
-
-.carousel-arrow,
-.stories-arrow{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-arrow svg,
-.stories-arrow svg{
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* ---------------------------------------------
-   FORM ICONS (assurance / success / error)
---------------------------------------------- */
-
-.contact-form-card__assurance,
-.form-success p,
-.form-error p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.contact-form-card__assurance svg,
-.form-success svg,
-.form-error svg{
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-}
-
-/* ---------------------------------------------
-   TESTIMONIAL AVATAR (initials, replaces photo)
---------------------------------------------- */
-
-.testimonial-avatar{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--plum-600), var(--gold-500));
-    color: #ffffff;
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    box-shadow: 0 6px 16px rgba(108, 43, 191, 0.3);
-}
-
-@media (max-width: 600px){
-    .testimonial-avatar{
-        width: 60px;
-        height: 60px;
-        font-size: 20px;
-    }
-}
-
-/* ---------------------------------------------
-   ABOUT PAGE: PLACEHOLDER PHOTO BLOCKS
-   Flat grey swapped for a subtle branded pattern
-   so empty image slots still look intentional.
---------------------------------------------- */
-
-.image,
-.single-image{
-    background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 60%),
-        linear-gradient(135deg, var(--plum-400), var(--plum-600) 55%, var(--gold-500));
-    border-radius: 14px;
-    position: relative;
-    overflow: hidden;
-}
-
-.image::after,
-.single-image::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 20c8 12 8 18 0 30-8-12-8-18 0-30z' fill='%23ffffff' fill-opacity='0.35'/%3E%3Cpath d='M30 50c12-8 18-8 30 0-12 8-18 8-30 0z' fill='%23ffffff' fill-opacity='0.35'/%3E%3C/svg%3E");
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* ---------------------------------------------
-   ACCESSIBILITY: VISIBLE FOCUS STATES
---------------------------------------------- */
-
-html{
-    scroll-behavior: smooth;
-}
-
-a:focus-visible,
-button:focus-visible,
-.nav-toggle:focus-visible,
-.dot:focus-visible,
-.form-input:focus-visible{
-    outline: 2px solid var(--gold-500);
-    outline-offset: 3px;
-    border-radius: 4px;
-}
-
-/* ---------------------------------------------
-   FLOATING ACTION BUTTONS (WhatsApp + Scroll-to-top)
-   Injected into the DOM by script.js on every page.
---------------------------------------------- */
-
-.float-actions{
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    z-index: 900;
-}
-
-.float-btn{
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 10px 24px rgba(63, 23, 104, 0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
-}
-
-.float-btn:hover{
-    transform: translateY(-3px) scale(1.04);
-}
-
-.float-btn svg{
-    width: 26px;
-    height: 26px;
-}
-
-.float-btn--whatsapp{
-    background: linear-gradient(135deg, #25D366, #128C7E);
-}
-
-.float-btn--top{
-    background: linear-gradient(135deg, var(--plum-600), var(--plum-950));
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(10px);
-}
-
-.float-btn--top.is-visible{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-.float-btn--top svg{
-    width: 20px;
-    height: 20px;
-}
-
-@media (max-width: 600px){
-    .float-actions{
-        right: 16px;
-        bottom: 16px;
-        gap: 10px;
-    }
-    .float-btn{
-        width: 46px;
-        height: 46px;
-    }
-    .float-btn svg{
-        width: 22px;
-        height: 22px;
-    }
-}
-
-/* ---------------------------------------------
-   DESKTOP NAV: LINKS CENTERED, CTA RIGHT-ALIGNED
---------------------------------------------- */
-
-@media (min-width: 901px){
-
-    .navbar{
-        position: relative;
-    }
-
-    .nav-menu{
-        display: flex;
-        flex: 1;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .nav-links{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        gap: 30px;
-    }
-}
-
-/* ---------------------------------------------
-   MOBILE HERO: CUSTOM SVG ILLUSTRATION BACKDROP
-   The photo scroller is dropped completely on
-   mobile. A hand-built wedding-decor illustration
-   (floral arch, fairy lights, falling petals,
-   glowing rings) takes its place — fully unique
-   from the Value section's full-bleed photo, and
-   tappable for a little sparkle interaction.
---------------------------------------------- */
-
-/* Hidden by default (desktop); the media query below switches
-   it on for mobile. Must come BEFORE that override so the
-   cascade resolves correctly. */
-.hero-bg-illustration{
-    display: none;
-}
-
-@media (max-width: 900px){
-
-    .hero-section{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 100px 24px 60px 24px !important;
-        gap: 28px;
-        text-align: center;
-        overflow: hidden;
-        isolation: isolate;
-    }
-
-    /* Photo scroller is fully removed on mobile */
-    .hero-images{
-        display: none;
-    }
-
-    .hero-bg-illustration{
-        display: block;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        cursor: pointer;
-    }
-
-    .hero-bg-illustration svg{
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    .hero-content{
-        position: relative;
-        z-index: 2;
-        align-items: center;
-        color: #ffffff;
-    }
-
-    .hero-content p{
-        color: rgba(255, 255, 255, 0.88);
-    }
-
-    .hero-numbers span{
-        color: #ffffff;
-    }
-}
-
-/* ---------------------------------------------
-   SVG ILLUSTRATION ANIMATIONS
-   (rules apply only while the illustration is
-   visible, i.e. on mobile, but keyframes are
-   harmless to define globally)
---------------------------------------------- */
-
-.hbi-bulb{
-    animation: hbiTwinkle 2.6s ease-in-out infinite;
-    transform-origin: center;
-    transform-box: fill-box;
-}
-
-@keyframes hbiTwinkle{
-    0%, 100%{ opacity: 0.35; transform: scale(0.8); }
-    50%{ opacity: 1; transform: scale(1.2); }
-}
-
-.hbi-petal{
-    animation: hbiFall linear infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-@keyframes hbiFall{
-    0%{ transform: translateY(-40px) translateX(0) rotate(0deg); opacity: 0; }
-    8%{ opacity: 0.9; }
-    92%{ opacity: 0.8; }
-    100%{ transform: translateY(720px) translateX(24px) rotate(220deg); opacity: 0; }
-}
-
-.hbi-rings{
-    animation: hbiGlow 4s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-@keyframes hbiGlow{
-    0%, 100%{ opacity: 0.55; }
-    50%{ opacity: 0.95; }
-}
-
-.hbi-glow-orb{
-    animation: hbiPulse 6s ease-in-out infinite;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-@keyframes hbiPulse{
-    0%, 100%{ opacity: 0.5; transform: scale(1); }
-    50%{ opacity: 0.85; transform: scale(1.08); }
-}
-
-/* Tap-to-sparkle particles, spawned by script.js */
-.hbi-sparkle{
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    pointer-events: none;
-    background: radial-gradient(circle, #ffffff, var(--gold-300, #f1da7e) 55%, transparent 72%);
-    clip-path: polygon(50% 0%, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0% 50%, 39% 36%);
-    transform: translate(-50%, -50%) scale(0);
-    animation: hbiSparklePop 0.75s ease-out forwards;
-    z-index: 3;
-}
-
-@keyframes hbiSparklePop{
-    0%{ transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
-    55%{ transform: translate(-50%, -50%) scale(1.3) rotate(50deg); opacity: 1; }
-    100%{ transform: translate(-50%, -50%) scale(0.3) rotate(100deg); opacity: 0; }
+// ============================================
+// MOBILE NAV TOGGLE
+// ============================================
+
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+if (navToggle && navMenu) {
+    function closeNavMenu() {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+    }
+
+    function toggleNavMenu() {
+        const isOpen = navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('nav-open', isOpen);
+    }
+
+    navToggle.addEventListener('click', toggleNavMenu);
+
+    // Close menu whenever a link or the Book Now button inside it is tapped
+    navMenu.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', closeNavMenu);
+    });
+
+    // Close on resize back to desktop width
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeNavMenu();
+    });
+}
+
+// =========================
+// SLIDER DATA
+// =========================
+
+const slides = [
+    {
+        image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&q=80",
+        title: "Elegant Wedding Experiences",
+        description: "Creating memorable wedding moments with timeless elegance."
+    },
+    {
+        image: "https://images.unsplash.com/photo-1544078751-58fed2b84d57?auto=format&fit=crop&w=1200&q=80",
+        title: "Luxury Event Styling",
+        description: "Beautiful decor and styling tailored for modern celebrations."
+    },
+    {
+        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+        title: "Professional Coordination",
+        description: "Carefully planned events executed with precision and care."
+    },
+    {
+        image: "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1200&q=80",
+        title: "Memories That Last Forever",
+        description: "Turning wedding visions into unforgettable experiences."
+    }
+];
+
+const valueSection = document.querySelector(".value-section");
+const slideTitle = document.getElementById("slide-title");
+const slideDescription = document.getElementById("slide-description");
+const dots = document.querySelectorAll(".dot");
+
+if (valueSection && slideTitle && slideDescription) {
+    let valueSlideIndex = 0;
+    let valueSlideInterval;
+
+    function changeSlide(index){
+        valueSlideIndex = parseInt(index);
+        valueSection.style.backgroundImage = `url('${slides[valueSlideIndex].image}')`;
+        slideTitle.textContent = slides[valueSlideIndex].title;
+        slideDescription.textContent = slides[valueSlideIndex].description;
+        dots.forEach(dot => dot.classList.remove("active"));
+        if(dots[valueSlideIndex]) dots[valueSlideIndex].classList.add("active");
+    }
+
+    function startValueAutoSlide() {
+        valueSlideInterval = setInterval(() => {
+            let nextIndex = valueSlideIndex + 1;
+            if (nextIndex >= slides.length) nextIndex = 0;
+            changeSlide(nextIndex);
+        }, 5000);
+    }
+
+    function resetValueAutoSlide() {
+        clearInterval(valueSlideInterval);
+        startValueAutoSlide();
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            changeSlide(dot.dataset.slide);
+            resetValueAutoSlide();
+        });
+    });
+
+    // Start initial auto slide
+    startValueAutoSlide();
+}
+
+// =========================
+// TESTIMONIAL DATA
+// =========================
+
+const testimonials = [
+    {
+        initials: "SJ",
+        name: "Sarah Johnson",
+        text: "The team created an unforgettable wedding experience that exceeded every expectation we had.",
+        stars: "★★★★★"
+    },
+    {
+        initials: "MA",
+        name: "Michael & Anne",
+        text: "Everything was beautifully organized and professionally handled from beginning to end.",
+        stars: "★★★★★"
+    },
+    {
+        initials: "GW",
+        name: "Grace Wanjiku",
+        text: "The decor, coordination, and attention to detail made our wedding feel truly magical.",
+        stars: "★★★★★"
+    },
+    {
+        initials: "DK",
+        name: "David Kimani",
+        text: "Our guests still talk about how elegant and seamless the entire event felt.",
+        stars: "★★★★★"
+    }
+];
+
+const testimonialCard = document.querySelector(".testimonial-card");
+const testimonialAvatar = document.getElementById("testimonial-avatar");
+const testimonialName = document.getElementById("testimonial-name");
+const testimonialText = document.getElementById("testimonial-text");
+const testimonialStars = document.getElementById("testimonial-stars");
+
+if (testimonialCard) {
+    let testimonialIndex = 0;
+
+    function updateTestimonial(){
+        testimonialCard.style.opacity = 0;
+        setTimeout(() => {
+            testimonialIndex++;
+            if(testimonialIndex >= testimonials.length){
+                testimonialIndex = 0;
+            }
+            if(testimonialAvatar) testimonialAvatar.textContent = testimonials[testimonialIndex].initials;
+            testimonialName.textContent = testimonials[testimonialIndex].name;
+            testimonialText.textContent = testimonials[testimonialIndex].text;
+            testimonialStars.textContent = testimonials[testimonialIndex].stars;
+            testimonialCard.style.opacity = 1;
+        }, 500);
+    }
+
+    setInterval(updateTestimonial, 5000);
+}
+
+// ============================================
+// IMAGE CAROUSEL
+// ============================================
+
+const track = document.getElementById('carousel-track');
+if (track) {
+    const prevBtn   = document.getElementById('carousel-prev');
+    const nextBtn   = document.getElementById('carousel-next');
+    const cards     = Array.from(track.querySelectorAll('.carousel-card'));
+    let currentIndex = cards.length > 2 ? 2 : 0;
+    const positionClasses = ['position-left-2', 'position-left-1', 'position-center', 'position-right-1', 'position-right-2'];
+
+    function updateCarousel() {
+      const totalCards = cards.length;
+      cards.forEach((card, i) => {
+        card.classList.remove('position-center', 'position-left-1', 'position-left-2', 'position-right-1', 'position-right-2', 'position-hidden');
+        let offset = i - currentIndex;
+        if (offset > totalCards / 2) offset -= totalCards;
+        else if (offset < -totalCards / 2) offset += totalCards;
+
+        if (offset >= -2 && offset <= 2) {
+          card.classList.add(positionClasses[offset + 2]);
+        } else {
+          card.classList.add('position-hidden');
+        }
+      });
+    }
+
+    if(prevBtn) prevBtn.addEventListener('click', function () {
+      if (currentIndex === 0) currentIndex = cards.length - 1;
+      else currentIndex--;
+      updateCarousel();
+    });
+
+    if(nextBtn) nextBtn.addEventListener('click', function () {
+      if (currentIndex === cards.length - 1) currentIndex = 0;
+      else currentIndex++;
+      updateCarousel();
+    });
+
+    cards.forEach((card, index) => {
+      card.addEventListener('click', function () {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50; 
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && nextBtn) nextBtn.click();
+        else if (prevBtn) prevBtn.click();
+      }
+    }
+    updateCarousel();
+}
+
+// ============================================
+// FEATURED WEDDING STORIES CAROUSEL
+// ============================================
+
+const smallTrack = document.getElementById('stories-small-track');
+if (smallTrack) {
+    const smallCards     = Array.from(smallTrack.querySelectorAll('.stories-small-card'));
+    const featuredIframe = document.getElementById('featured-iframe');
+    const storiesPrev    = document.getElementById('stories-prev');
+    const storiesNext    = document.getElementById('stories-next');
+    let storiesStartIndex = 0;
+    const VISIBLE_COUNT = 3;
+    const CARD_WIDTH = 117;
+    const CARD_GAP   = 10;
+
+    function updateStoriesTrack() {
+      const scrollAmount = storiesStartIndex * (CARD_WIDTH + CARD_GAP);
+      smallTrack.scrollLeft = scrollAmount;
+    }
+
+    function swapToFeatured(card) {
+      const videoId = card.getAttribute('data-video-id');
+      if (featuredIframe) {
+          featuredIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+      }
+    }
+
+    smallCards.forEach(function(card) {
+      const overlay = card.querySelector('.stories-small-card__overlay');
+      if (overlay) {
+          overlay.addEventListener('click', function() {
+            swapToFeatured(card);
+          });
+      }
+    });
+
+    if(storiesPrev) storiesPrev.addEventListener('click', function() {
+      if (storiesStartIndex > 0) {
+        storiesStartIndex--;
+        updateStoriesTrack();
+      }
+    });
+
+    if(storiesNext) storiesNext.addEventListener('click', function() {
+      if (storiesStartIndex < smallCards.length - VISIBLE_COUNT) {
+        storiesStartIndex++;
+        updateStoriesTrack();
+      }
+    });
+
+    smallTrack.style.overflowX = 'scroll';
+    smallTrack.style.scrollbarWidth = 'none';    
+    smallTrack.style.msOverflowStyle = 'none';   
+
+    const styleTag = document.createElement('style');
+    styleTag.textContent = '.stories-small-track::-webkit-scrollbar { display: none; }';
+    document.head.appendChild(styleTag);
+
+    updateStoriesTrack();
+}
+
+// ============================================
+// CONTACT FORM — EmailJS Integration
+// ============================================
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init('u0XDWOWKdXwPO1l_7');
+  }
+
+  const submitBtn    = document.getElementById('submit-btn');
+  const formSuccess  = document.getElementById('form-success');
+  const formError    = document.getElementById('form-error');
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(formSuccess) formSuccess.style.display = 'none';
+    if(formError) formError.style.display   = 'none';
+    if(submitBtn) {
+        submitBtn.disabled     = true;
+        submitBtn.textContent  = 'Sending...';
+    }
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.sendForm('service_y179vul', 'template_1fshw3w', contactForm)
+        .then(function() {
+          if(formSuccess) formSuccess.style.display = 'block';
+          contactForm.reset();
+          if(submitBtn){
+              submitBtn.disabled    = false;
+              submitBtn.textContent = 'Send Message';
+          }
+        })
+        .catch(function(error) {
+          if(formError) formError.style.display = 'block';
+          console.error('EmailJS error:', error);
+          if(submitBtn){
+              submitBtn.disabled    = false;
+              submitBtn.textContent = 'Send Message';
+          }
+        });
+    }
+  });
+}
+
+// ============================================
+// CUSTOM CURSOR & MICRO-INTERACTIONS
+// ============================================
+
+// Create cursor elements
+const cursorDot = document.createElement('div');
+cursorDot.classList.add('cursor-dot');
+document.body.appendChild(cursorDot);
+
+const cursorOutline = document.createElement('div');
+cursorOutline.classList.add('cursor-outline');
+document.body.appendChild(cursorOutline);
+
+// Move cursor
+window.addEventListener('mousemove', function(e) {
+  const posX = e.clientX;
+  const posY = e.clientY;
+  
+  cursorDot.style.left = `${posX}px`;
+  cursorDot.style.top = `${posY}px`;
+  
+  cursorOutline.animate({
+    left: `${posX}px`,
+    top: `${posY}px`
+  }, { duration: 300, fill: "forwards" });
+});
+
+// Add hover effect to interactive elements
+const interactives = document.querySelectorAll('a, button, .service-card, .gallery-image, .dot');
+
+interactives.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorOutline.classList.add('cursor-hover');
+    cursorDot.classList.add('cursor-hover');
+  });
+  
+  el.addEventListener('mouseleave', () => {
+    cursorOutline.classList.remove('cursor-hover');
+    cursorDot.classList.remove('cursor-hover');
+  });
+});
+
+// ============================================
+// SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+// ============================================
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target); // Only animate once
+        }
+    });
+}, observerOptions);
+
+// Select all sections except the hero and navbar, and add animate-on-scroll
+const sectionsToAnimate = document.querySelectorAll('section:not(.gallery-hero):not(.hero-section)');
+sectionsToAnimate.forEach(section => {
+    section.classList.add('animate-on-scroll');
+    observer.observe(section);
+});
+// ============================================
+// FLOATING ACTION BUTTONS — WhatsApp + Scroll to Top
+// Injected once on every page that loads this script.
+// ============================================
+
+(function () {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'float-actions';
+
+    wrapper.innerHTML = `
+        <a class="float-btn float-btn--whatsapp" href="https://wa.me/254117665899" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+            <svg viewBox="0 0 32 32" fill="white"><path d="M16.04 4C9.6 4 4.36 9.2 4.36 15.6c0 2.1.56 4.06 1.54 5.76L4 28l6.84-1.8a11.7 11.7 0 0 0 5.2 1.23h.01c6.43 0 11.67-5.2 11.67-11.6C27.72 9.2 22.48 4 16.04 4zm0 21.2h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.21-4.06 1.07 1.08-3.96-.23-.4a9.55 9.55 0 0 1-1.46-5.16c0-5.3 4.33-9.6 9.94-9.6 2.66 0 5.15 1.03 7.03 2.9a9.5 9.5 0 0 1 2.91 6.7c0 5.3-4.33 9.6-9.95 9.6zm5.45-7.2c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.1 4.5.71.3 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+        </a>
+        <button class="float-btn float-btn--top" id="scroll-to-top" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+    `;
+
+    document.body.appendChild(wrapper);
+
+    const topBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            topBtn.classList.add('is-visible');
+        } else {
+            topBtn.classList.remove('is-visible');
+        }
+    });
+
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+
+// ============================================
+// HERO SVG ILLUSTRATION — TAP TO SPARKLE
+// Mobile-only decorative interaction: tapping the
+// hero background spawns a little burst of sparkles
+// at the touch point.
+// ============================================
+
+const heroIllustration = document.getElementById('hero-bg-illustration');
+
+if (heroIllustration) {
+    function spawnSparkles(x, y) {
+        const count = 5;
+        for (let i = 0; i < count; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'hbi-sparkle';
+
+            const angle = (Math.PI * 2 * i) / count + Math.random() * 0.6;
+            const distance = 14 + Math.random() * 18;
+            const offsetX = Math.cos(angle) * distance;
+            const offsetY = Math.sin(angle) * distance;
+
+            sparkle.style.left = `${x + offsetX}px`;
+            sparkle.style.top = `${y + offsetY}px`;
+            sparkle.style.animationDelay = `${i * 0.04}s`;
+
+            heroIllustration.appendChild(sparkle);
+
+            sparkle.addEventListener('animationend', () => sparkle.remove());
+            // Safety cleanup in case animationend doesn't fire
+            setTimeout(() => sparkle.remove(), 1200);
+        }
+    }
+
+    function handleHeroTap(e) {
+        const rect = heroIllustration.getBoundingClientRect();
+        const point = e.changedTouches ? e.changedTouches[0] : e;
+        const x = point.clientX - rect.left;
+        const y = point.clientY - rect.top;
+        spawnSparkles(x, y);
+    }
+
+    heroIllustration.addEventListener('click', handleHeroTap);
+    heroIllustration.addEventListener('touchstart', handleHeroTap, { passive: true });
 }
