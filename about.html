@@ -7,10 +7,6 @@
     <meta name="keywords" content="about sparkles events, wedding decor experts, event organizers nairobi, award winning decor company">
     <title>Sparkles Events & Decor | About Us</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="assets/site.webmanifest">
 </head>
 <body>
     <!-- =========================
@@ -23,9 +19,18 @@
     <div class="logo">
         <!-- Replace with your real logo image later -->
          <a href="index.html">
-            <img src="SparkelsLogo.png" alt="Company Logo">
+            <img src="assets/SparkelsLogo.png" alt="Company Logo">
          </a> 
     </div>
+    <!-- Mobile Nav Toggle -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Nav Menu Wrapper -->
+    <div class="nav-menu" id="nav-menu">
 
     <!-- Navigation Links -->
     <nav class="nav-links">
@@ -42,6 +47,8 @@
         <button onclick="window.location.href='contact.html'">Book Now</button>
 
     </div>
+
+    </div><!-- end .nav-menu -->
 
 </header>
 
@@ -87,7 +94,7 @@
 
             <div class="content-heading">
 
-                <div class="content-icon"></div>
+                <div class="content-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="14.2,9.8 11,11.2 9.8,14.2 13,12.8" fill="white" stroke="none"/></svg></div>
 
                 <h2>Mission</h2>
 
@@ -150,7 +157,7 @@
 
             <div class="content-heading">
 
-                <div class="content-icon"></div>
+                <div class="content-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
 
                 <h2>Vision</h2>
 
@@ -193,7 +200,7 @@
 
         <div class="value-card">
 
-            <div class="value-icon"></div>
+            <div class="value-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2L12 2z"/></svg></div>
 
             <h3>Unbound Creativity</h3>
 
@@ -213,7 +220,7 @@
 
         <div class="value-card">
 
-            <div class="value-icon"></div>
+            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="6"/><path d="M9.2 8.4L7 3M14.8 8.4L17 3"/><path d="M9.5 14l1.8 1.8L14.8 12"/></svg></div>
 
             <h3>Uncompromising Excellence</h3>
 
@@ -226,7 +233,7 @@
 
         <div class="value-card">
 
-            <div class="value-icon"></div>
+            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
 
             <h3>Steadfast Integrity</h3>
 
@@ -246,7 +253,7 @@
 
         <div class="value-card">
 
-            <div class="value-icon"></div>
+            <div class="value-icon"><svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 21s-7-4.3-9.4-8.8C0.8 8.6 2.1 4.7 6 4.2c2-0.3 3.5 0.7 4 2.2 0.5-1.5 2-2.5 4-2.2 3.9 0.5 5.2 4.4 3.4 8C19 16.7 12 21 12 21z"/></svg></div>
 
             <h3>Ignited Passion</h3>
 
@@ -270,7 +277,7 @@
 
     <div class="our-story-intro">
 
-        <div class="story-icon"></div>
+        <div class="story-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
 
         <h2>A Legacy of Elegance</h2>
 
@@ -475,7 +482,7 @@
 
             <div class="stat-header">
 
-                <div class="stat-icon"></div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 3v4M16 3v4"/></svg></div>
 
                 <h3>Events</h3>
 
@@ -494,7 +501,7 @@
 
             <div class="stat-header">
 
-                <div class="stat-icon"></div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3.6 2.7-6 5.5-6s5.5 2.4 5.5 6"/><circle cx="17.5" cy="9" r="2.3"/><path d="M16 14.2c2.6 0.2 4.7 2.4 4.7 5.8"/></svg></div>
 
                 <h3>Clients</h3>
 
@@ -513,7 +520,7 @@
 
             <div class="stat-header">
 
-                <div class="stat-icon"></div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5A2.5 2.5 0 0 0 7 9.5M17 5h2.5A2.5 2.5 0 0 1 17 9.5"/><path d="M12 13v3.5M9 21h6M9 21c0-1.8 1-2.3 3-2.3s3 0.5 3 2.3"/></svg></div>
 
                 <h3>Awards</h3>
 
@@ -532,7 +539,7 @@
 
             <div class="stat-header">
 
-                <div class="stat-icon"></div>
+                <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
 
                 <h3>Years</h3>
 
