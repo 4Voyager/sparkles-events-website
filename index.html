@@ -7,11 +7,10 @@
     <meta name="keywords" content="wedding planning, wedding decor, event coordination, sparkles events, luxury decor nairobi">
     <title>Sparkles Events & Decor | Premium Wedding Planning & Luxury Decor Nairobi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<!-- Changes made are registering-->
 </head>
 <body>
     <!-- =========================
@@ -24,20 +23,22 @@
     <div class="logo">
         <!-- Replace with your real logo image later -->
         <a href="index.html">
-            <img src="SparkelsLogo.png" alt="Company Logo">
+            <img src="assets/SparkelsLogo.png" alt="Company Logo">
         </a>
         
     </div>
-
-    <!-- Mobile Menu Toggle -->
-    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+    <!-- Mobile Nav Toggle -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
+    <!-- Mobile Nav Menu Wrapper -->
+    <div class="nav-menu" id="nav-menu">
+
     <!-- Navigation Links -->
-    <nav class="nav-links" id="nav-menu">
+    <nav class="nav-links">
 
         <a href="about.html">About Us</a>
         <a href="gallery.html">Gallery</a>
@@ -52,6 +53,8 @@
 
     </div>
 
+    </div><!-- end .nav-menu -->
+
 </header>
 
 <!-- =========================
@@ -59,6 +62,125 @@
 ========================= -->
 
 <section class="hero-section">
+
+    <!-- Custom SVG Illustration — mobile-only hero backdrop.
+         Floral arch, fairy lights, falling petals, and glowing
+         wedding rings. Tap/click anywhere for a sparkle burst. -->
+    <div class="hero-bg-illustration" id="hero-bg-illustration" aria-hidden="true">
+        <svg viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="hbiSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2a0e4a"/>
+                    <stop offset="50%" stop-color="#4a1a73"/>
+                    <stop offset="100%" stop-color="#280f47"/>
+                </linearGradient>
+                <radialGradient id="hbiGlow" cx="50%" cy="30%" r="55%">
+                    <stop offset="0%" stop-color="#f1da7e" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#f1da7e" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="hbiLeaf" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#a9822c"/>
+                    <stop offset="100%" stop-color="#f1da7e"/>
+                </linearGradient>
+                <linearGradient id="hbiPetal" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ecd9fb"/>
+                    <stop offset="100%" stop-color="#c79df0"/>
+                </linearGradient>
+                <radialGradient id="hbiVignette" cx="50%" cy="42%" r="72%">
+                    <stop offset="0%" stop-color="#1c0a33" stop-opacity="0"/>
+                    <stop offset="100%" stop-color="#1c0a33" stop-opacity="0.55"/>
+                </radialGradient>
+                <linearGradient id="hbiBottomShade" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="55%" stop-color="#1c0a33" stop-opacity="0"/>
+                    <stop offset="100%" stop-color="#1c0a33" stop-opacity="0.6"/>
+                </linearGradient>
+
+                <g id="hbiLeafShape">
+                    <path d="M0,0 C7,-15 21,-15 28,0 C21,15 7,15 0,0 Z" fill="url(#hbiLeaf)"/>
+                    <path d="M0,0 L28,0" stroke="#7a5a1c" stroke-width="0.6" opacity="0.5"/>
+                </g>
+
+                <g id="hbiBloom">
+                    <ellipse cx="0" cy="-10" rx="6" ry="11" fill="url(#hbiPetal)" transform="rotate(0)"/>
+                    <ellipse cx="0" cy="-10" rx="6" ry="11" fill="url(#hbiPetal)" transform="rotate(72)"/>
+                    <ellipse cx="0" cy="-10" rx="6" ry="11" fill="url(#hbiPetal)" transform="rotate(144)"/>
+                    <ellipse cx="0" cy="-10" rx="6" ry="11" fill="url(#hbiPetal)" transform="rotate(216)"/>
+                    <ellipse cx="0" cy="-10" rx="6" ry="11" fill="url(#hbiPetal)" transform="rotate(288)"/>
+                    <circle cx="0" cy="0" r="4" fill="#e3b14a"/>
+                </g>
+            </defs>
+
+            <!-- Sky -->
+            <rect width="400" height="700" fill="url(#hbiSky)"/>
+            <ellipse class="hbi-glow-orb" cx="200" cy="230" rx="220" ry="220" fill="url(#hbiGlow)"/>
+
+            <!-- Fairy light string -->
+            <path d="M20,78 Q200,28 380,78" stroke="#caa86b" stroke-width="1.4" fill="none" opacity="0.55"/>
+            <g>
+                <g class="hbi-bulb" style="animation-delay:0s"><circle cx="20" cy="78" r="4" fill="#fff3d0"/><circle cx="20" cy="78" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:0.3s"><circle cx="65" cy="58" r="4" fill="#fff3d0"/><circle cx="65" cy="58" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:0.6s"><circle cx="110" cy="42" r="4" fill="#fff3d0"/><circle cx="110" cy="42" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:0.9s"><circle cx="155" cy="32" r="4" fill="#fff3d0"/><circle cx="155" cy="32" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:1.2s"><circle cx="200" cy="28" r="4" fill="#fff3d0"/><circle cx="200" cy="28" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:1.5s"><circle cx="245" cy="32" r="4" fill="#fff3d0"/><circle cx="245" cy="32" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:1.8s"><circle cx="290" cy="42" r="4" fill="#fff3d0"/><circle cx="290" cy="42" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:2.1s"><circle cx="335" cy="58" r="4" fill="#fff3d0"/><circle cx="335" cy="58" r="8" fill="#fff3d0" opacity="0.25"/></g>
+                <g class="hbi-bulb" style="animation-delay:2.4s"><circle cx="380" cy="78" r="4" fill="#fff3d0"/><circle cx="380" cy="78" r="8" fill="#fff3d0" opacity="0.25"/></g>
+            </g>
+
+            <!-- Left floral garland -->
+            <g>
+                <use href="#hbiLeafShape" transform="translate(14,18) rotate(-25) scale(1.25)"/>
+                <use href="#hbiLeafShape" transform="translate(34,58) rotate(12) scale(1.05)"/>
+                <use href="#hbiBloom" transform="translate(18,98) scale(1.1)"/>
+                <use href="#hbiLeafShape" transform="translate(44,138) rotate(-12) scale(0.95)"/>
+                <use href="#hbiBloom" transform="translate(22,178) scale(0.9)"/>
+                <use href="#hbiLeafShape" transform="translate(48,216) rotate(18) scale(0.8)"/>
+                <use href="#hbiBloom" transform="translate(26,254) scale(0.7)"/>
+            </g>
+
+            <!-- Right floral garland (mirrored) -->
+            <g>
+                <use href="#hbiLeafShape" transform="translate(386,18) rotate(205) scale(1.25)"/>
+                <use href="#hbiLeafShape" transform="translate(366,58) rotate(168) scale(1.05)"/>
+                <use href="#hbiBloom" transform="translate(382,98) scale(1.1)"/>
+                <use href="#hbiLeafShape" transform="translate(356,138) rotate(192) scale(0.95)"/>
+                <use href="#hbiBloom" transform="translate(378,178) scale(0.9)"/>
+                <use href="#hbiLeafShape" transform="translate(352,216) rotate(162) scale(0.8)"/>
+                <use href="#hbiBloom" transform="translate(374,254) scale(0.7)"/>
+            </g>
+
+            <!-- Falling petals -->
+            <g class="hbi-petal" style="animation-duration:11s; animation-delay:0s">
+                <ellipse cx="40" cy="0" rx="5" ry="9" fill="url(#hbiPetal)" opacity="0.85" transform="rotate(15 40 0)"/>
+            </g>
+            <g class="hbi-petal" style="animation-duration:14s; animation-delay:2.5s">
+                <ellipse cx="110" cy="0" rx="4.5" ry="8" fill="url(#hbiPetal)" opacity="0.8" transform="rotate(-20 110 0)"/>
+            </g>
+            <g class="hbi-petal" style="animation-duration:9.5s; animation-delay:1s">
+                <ellipse cx="180" cy="0" rx="5" ry="9" fill="url(#hbiPetal)" opacity="0.85" transform="rotate(30 180 0)"/>
+            </g>
+            <g class="hbi-petal" style="animation-duration:13s; animation-delay:4s">
+                <ellipse cx="250" cy="0" rx="4" ry="7" fill="url(#hbiPetal)" opacity="0.75" transform="rotate(-10 250 0)"/>
+            </g>
+            <g class="hbi-petal" style="animation-duration:10.5s; animation-delay:3s">
+                <ellipse cx="320" cy="0" rx="5" ry="9" fill="url(#hbiPetal)" opacity="0.85" transform="rotate(20 320 0)"/>
+            </g>
+            <g class="hbi-petal" style="animation-duration:15s; animation-delay:5.5s">
+                <ellipse cx="360" cy="0" rx="4.5" ry="8" fill="url(#hbiPetal)" opacity="0.8" transform="rotate(-25 360 0)"/>
+            </g>
+
+            <!-- Glowing interlocking wedding rings -->
+            <g class="hbi-rings" transform="translate(200,310)">
+                <circle r="26" fill="none" stroke="#f1da7e" stroke-width="2.4" transform="translate(-13,0)"/>
+                <circle r="26" fill="none" stroke="#f1da7e" stroke-width="2.4" transform="translate(13,0)"/>
+            </g>
+
+            <!-- Vignette + bottom shade for legibility -->
+            <rect width="400" height="700" fill="url(#hbiVignette)"/>
+            <rect width="400" height="700" fill="url(#hbiBottomShade)"/>
+        </svg>
+    </div>
 
 
     <!-- LEFT SIDE - HERO CONTENT -->
@@ -97,26 +219,26 @@
         <!-- First Image Column -->
         <div class="image-column">
             <div class="image-track track-down">
-                <img src="https://images.unsplash.com/photo-1731664452900-c321aeabf051?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding couple in traditional celebration">
-                <img src="https://images.unsplash.com/photo-1731664452534-f9c1915df327?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding reception details">
-                <img src="https://images.unsplash.com/photo-1747359637239-60c35fc39ab6?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding celebration with local style">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Decoration">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Wedding Couple">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" alt="Outdoor Wedding Ceremony">
                 <!-- Duplicate images for infinite loop -->
-                <img src="https://images.unsplash.com/photo-1731664452900-c321aeabf051?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding couple in traditional celebration">
-                <img src="https://images.unsplash.com/photo-1731664452534-f9c1915df327?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding reception details">
-                <img src="https://images.unsplash.com/photo-1747359637239-60c35fc39ab6?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding celebration with local style">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Decoration">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Wedding Couple">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" alt="Outdoor Wedding Ceremony">
             </div>
         </div>
 
         <!-- Second Image Column -->
         <div class="image-column">
             <div class="image-track track-up">
-                <img src="https://images.unsplash.com/photo-1731664452875-0d28d943beda?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding decor and floral styling">
-                <img src="https://images.unsplash.com/photo-1747359637212-6323e5c981d5?auto=format&fit=crop&w=600&q=80" alt="Kenyan bridal styling at a wedding event">
-                <img src="https://images.unsplash.com/photo-1724812773350-a7d0bf664417?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding ceremony with local charm">
+                <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80" alt="Table Decor Reception">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80" alt="Wedding Dress Detail">
+                <img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=crop&w=600&q=80" alt="Ceremony Arch Setup">
                 <!-- Duplicate images for infinite loop -->
-                <img src="https://images.unsplash.com/photo-1731664452875-0d28d943beda?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding decor and floral styling">
-                <img src="https://images.unsplash.com/photo-1747359637212-6323e5c981d5?auto=format&fit=crop&w=600&q=80" alt="Kenyan bridal styling at a wedding event">
-                <img src="https://images.unsplash.com/photo-1724812773350-a7d0bf664417?auto=format&fit=crop&w=600&q=80" alt="Kenyan wedding ceremony with local charm">
+                <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80" alt="Table Decor Reception">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80" alt="Wedding Dress Detail">
+                <img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=crop&w=600&q=80" alt="Ceremony Arch Setup">
             </div>
         </div>
 
@@ -283,54 +405,54 @@
             <!-- ORIGINAL IMAGES -->
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452900-c321aeabf051?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding couple in a local celebration">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Wedding flowers table">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452534-f9c1915df327?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding reception details">
+                <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=400&q=80" alt="Reception tables arrangement">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637239-60c35fc39ab6?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding celebration with local style">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=400&q=80" alt="Bridal gown close-up">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452875-0d28d943beda?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding decor and floral styling">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Wedding couple portrait">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637212-6323e5c981d5?auto=format&fit=crop&w=400&q=80" alt="Kenyan bridal styling at a wedding event">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Ceremony venue setup">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1724812773350-a7d0bf664417?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding ceremony with local charm">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80" alt="Bride holding bouquet">
             </div>
 
 
             <!-- DUPLICATED IMAGES FOR LOOP -->
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452900-c321aeabf051?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding couple in a local celebration">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80" alt="Wedding flowers table">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452534-f9c1915df327?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding reception details">
+                <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=400&q=80" alt="Reception tables arrangement">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637239-60c35fc39ab6?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding celebration with local style">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=400&q=80" alt="Bridal gown close-up">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664452875-0d28d943beda?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding decor and floral styling">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" alt="Wedding couple portrait">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637212-6323e5c981d5?auto=format&fit=crop&w=400&q=80" alt="Kenyan bridal styling at a wedding event">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80" alt="Ceremony venue setup">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1724812773350-a7d0bf664417?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding ceremony with local charm">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80" alt="Bride holding bouquet">
             </div>
 
         </div>
@@ -347,54 +469,54 @@
             <!-- ORIGINAL IMAGES -->
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664453997-de75419718da?auto=format&fit=crop&w=400&q=80" alt="Kenyan bride and groom celebration">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=400&q=80" alt="Shining reception tables">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1649228167403-b092e0611ba0?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding decor at a local venue">
+                <img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=crop&w=400&q=80" alt="Outdoor altar design">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1696076994764-a3f679d74d95?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding floral setup">
+                <img src="https://images.unsplash.com/photo-1507504038482-7621c37866e3?auto=format&fit=crop&w=400&q=80" alt="Wedding rings detail">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1696076994771-4dd32d4ad5c1?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding ceremony details">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=400&q=80" alt="Couple holding hands close-up">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359636888-61a111176569?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding celebration scene">
+                <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding cake setup">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637602-f135c3dbab15?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding local style portrait">
+                <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=400&q=80" alt="Toast champagne glasses">
             </div>
 
 
             <!-- DUPLICATED IMAGES -->
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1731664453997-de75419718da?auto=format&fit=crop&w=400&q=80" alt="Kenyan bride and groom celebration">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=400&q=80" alt="Shining reception tables">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1649228167403-b092e0611ba0?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding decor at a local venue">
+                <img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?auto=format&fit=crop&w=400&q=80" alt="Outdoor altar design">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1696076994764-a3f679d74d95?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding floral setup">
+                <img src="https://images.unsplash.com/photo-1507504038482-7621c37866e3?auto=format&fit=crop&w=400&q=80" alt="Wedding rings detail">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1696076994771-4dd32d4ad5c1?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding ceremony details">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=400&q=80" alt="Couple holding hands close-up">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359636888-61a111176569?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding celebration scene">
+                <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding cake setup">
             </div>
 
             <div class="gallery-image">
-                <img src="https://images.unsplash.com/photo-1747359637602-f135c3dbab15?auto=format&fit=crop&w=400&q=80" alt="Kenyan wedding local style portrait">
+                <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=400&q=80" alt="Toast champagne glasses">
             </div>
 
         </div>
@@ -428,12 +550,12 @@
         <!-- TOP ROW -->
         <div class="testimonial-header">
 
-            <!-- Client Image -->
-            <img
-                id="testimonial-image"
-                src="https://images.unsplash.com/photo-1731664453997-de75419718da?auto=format&fit=crop&w=300&q=80"
-                alt="Happy Kenyan couple testimonial"
-            >
+            <!-- Client Initials Avatar -->
+            <div
+                class="testimonial-avatar"
+                id="testimonial-avatar"
+                aria-hidden="true"
+            >WK</div>
 
             <!-- Client Name -->
             <h3 id="testimonial-name">
