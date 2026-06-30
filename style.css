@@ -58,15 +58,14 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
     align-items: center;
 
     /* Space inside navbar */
-    padding: 6px 60px;
+    padding: 0px 60px;
 
     /* Make sticky */
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: var(--color-bg);
-    height: auto;
-    min-height: 0;
+    height: 100px;
 
 }
 
@@ -82,7 +81,6 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
 
     /* Keeps image proportions correct */
     height: auto;
-    display: block;
 
 }
 
@@ -116,17 +114,8 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
    CTA BUTTON
 ========================= */
 
-.nav-cta{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
 .nav-cta button{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+
     padding: 10px 20px;
     cursor: pointer;
 
@@ -371,8 +360,8 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
     /* Space inside section */
     padding: 60px;
 
-    /* Kenyan wedding background */
-    background-image: url("https://images.unsplash.com/photo-1731664452534-f9c1915df327?auto=format&fit=crop&w=1400&q=80");
+    /* First background image */
+    background-image: url("https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1200&q=80");
 
 }
 
@@ -993,7 +982,7 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
 
     height: 550px;
 
-    background-image: url("https://images.unsplash.com/photo-1747359637239-60c35fc39ab6?auto=format&fit=crop&w=1400&q=80");
+    background-image: url("../assets/images/about-hero.jpg");
 
     background-size: cover;
 
@@ -1257,7 +1246,7 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
   position: relative;           /* Needed to position overlay and content inside */
   width: 100%;
   height: 420px;                /* Adjust height as needed */
-  background-image: url('https://images.unsplash.com/photo-1731664452900-c321aeabf051?auto=format&fit=crop&w=1400&q=80');
+  background-image: url('images/gallery-hero.jpg'); /* Replace with your image path */
   background-size: cover;       /* Image fills the section without stretching */
   background-position: center;  /* Keeps the focal point centered */
   display: flex;
@@ -2415,7 +2404,6 @@ h1, h2, h3{
     position: sticky;
     top: 0;
     z-index: 1000;
-    position: relative;
 
     background: var(--glass-dark);
     backdrop-filter: blur(16px) saturate(180%);
@@ -2424,42 +2412,6 @@ h1, h2, h3{
     border-bottom: 1px solid var(--glass-dark-border);
     box-shadow: 0 8px 30px rgba(238, 236, 241, 0.18);
 
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 48px;
-    height: 48px;
-    border: 1px solid var(--glass-border);
-    background: var(--glass-light-strong);
-    border-radius: 12px;
-    cursor: pointer;
-    padding: 0 12px;
-    z-index: 1001;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--plum-950);
-    border-radius: 999px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-toggle.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-links a{
@@ -2485,10 +2437,6 @@ h1, h2, h3{
 .nav-cta button:hover{
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45);
-}
-
-body.nav-open {
-    overflow: hidden;
 }
 
 
@@ -3000,511 +2948,939 @@ button:hover, .btn:hover {
     transform: translateY(0);
 }
 
-/* =========================================
-   RESPONSIVE BREAKPOINTS
-   Tablet, landscape phone, and portrait phone support
-========================================= */
 
-@media (max-width: 1024px) {
-    .navbar {
-        padding: 0 32px;
+/* =====================================================
+   =====================================================
+   RESPONSIVE OVERHAUL
+   Mobile nav, fluid type, and breakpoint fixes for every
+   page. Written last so it wins the cascade.
+   ===================================================== */
+
+/* ---------------------------------------------
+   MOBILE NAV TOGGLE (hamburger)
+--------------------------------------------- */
+
+.nav-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.nav-toggle span{
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--ink, #221331);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1){
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2){
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3){
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Prevent background scroll while the mobile menu is open */
+body.nav-open{
+    overflow: hidden;
+}
+
+/* ---------------------------------------------
+   LARGE TABLET / SMALL DESKTOP (<=1100px)
+--------------------------------------------- */
+
+@media (max-width: 1100px){
+
+    .navbar{
+        padding: 0px 30px !important;
     }
 
-    .hero-section {
-        min-height: auto;
-        padding: 60px 32px;
-        gap: 40px;
+    .hero-section{
+        padding: 0px 30px 60px 30px !important;
+        gap: 30px !important;
     }
 
-    .hero-content h1 {
-        font-size: 52px;
-    }
-
-    .hero-images {
-        height: 70vh;
-    }
-
-    .value-section {
-        height: 520px;
-        padding: 40px 32px;
+    .hero-content h1{
+        font-size: 46px;
     }
 
     .services-section,
     .gallery-section,
     .testimonials-section,
-    .contact-section,
-    .stories-section,
     .mission-vision-section,
     .core-values-section,
     .our-story-section,
-    .numbers-section {
-        padding-left: 32px;
-        padding-right: 32px;
+    .numbers-section{
+        padding: 90px 30px !important;
     }
 
-    .contact-container,
-    .stories-container {
-        flex-direction: column;
+    .stories-section{
+        padding: 60px 30px;
     }
 
-    .stories-featured {
-        width: 100%;
-        flex-basis: auto;
+    .stories-featured{
+        flex: 1 1 0;
     }
 
-    .stories-right {
-        width: 100%;
-    }
-
-    .stories-small-track {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .info-strip__phones {
-        flex-wrap: wrap;
-        justify-content: center;
+    .mission-vision-block{
+        gap: 50px;
     }
 }
 
-@media (max-width: 900px) {
-    .navbar {
-        height: auto;
-        padding: 16px 18px;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 8px;
-        width: 100%;
+/* ---------------------------------------------
+   TABLET / MOBILE (<=900px)
+   Nav becomes a hamburger-triggered panel here,
+   and most multi-column layouts begin stacking.
+--------------------------------------------- */
+
+@media (max-width: 900px){
+
+    /* ----- NAV ----- */
+
+    .navbar{
+        padding: 0 20px !important;
+        height: 80px;
     }
 
-    .logo {
-        grid-column: 1;
-        justify-self: start;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-toggle {
-        display: flex;
-        grid-column: 3;
-        justify-self: end;
-        align-self: center;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 16px 24px;
-        background: var(--glass-dark);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        border: 1px solid var(--glass-dark-border);
-        border-radius: 0 0 16px 16px;
-        box-shadow: 0 10px 30px rgba(63, 23, 104, 0.12);
-        order: 3;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        width: 100%;
-        padding: 12px 0;
-    }
-
-    .nav-cta {
-        grid-column: 2;
-        justify-self: center;
-        align-self: center;
-        margin-left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 24px;
-    }
-
-    .hero-content {
-        align-items: center;
-    }
-
-    .hero-content p {
-        max-width: 60ch;
-    }
-
-    .hero-numbers,
-    .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .hero-images {
-        width: 100%;
-        height: 520px;
-    }
-
-    .value-content h2 {
-        font-size: 38px;
-    }
-
-    .services-intro h2,
-    .gallery-intro h2,
-    .core-values-intro h2,
-    .our-story-intro h2,
-    .numbers-intro h2 {
-        font-size: 36px;
-    }
-
-    .service-card {
-        width: min(100%, 360px);
-    }
-
-    .gallery-cta {
-        padding: 0 24px;
-        justify-content: center;
-    }
-
-    .testimonial-card {
-        padding: 36px;
-    }
-
-    .testimonial-cta-row {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .mission-vision-block {
-        flex-direction: column;
-        gap: 40px;
-        margin-bottom: 80px;
-    }
-
-    .image-collage {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .timeline::before {
-        left: 20px;
-    }
-
-    .timeline-item {
-        grid-template-columns: 40px 1fr;
-        margin-bottom: 60px;
-    }
-
-    .timeline-item.left .timeline-content,
-    .timeline-item.right .timeline-content {
-        grid-column: 2;
-        justify-self: start;
-        text-align: left;
-        padding: 0;
-    }
-
-    .timeline-item.left .timeline-header,
-    .timeline-item.right .timeline-header {
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-images {
-        height: 420px;
-        gap: 12px;
-    }
-
-    .image-track img {
-        height: 180px;
-    }
-
-    .value-section {
-        height: auto;
-        min-height: 460px;
-    }
-
-    .value-content {
-        max-width: 100%;
-    }
-
-    .slider-dots {
-        bottom: 24px;
-    }
-
-    .gallery-slider {
-        overflow-x: auto;
-    }
-
-    .gallery-track {
-        width: max-content;
-    }
-
-    .gallery-image {
-        width: 180px;
-        height: 180px;
-    }
-
-    .carousel-wrapper {
-        height: 320px;
-    }
-
-    .stories-section {
-        padding: 80px 20px;
-    }
-
-    .stories-small-track {
-        gap: 8px;
-    }
-
-    .stories-small-card {
-        width: 96px;
-        min-width: 96px;
-        height: 160px;
-    }
-
-    .contact-form-card {
-        padding: 32px;
-    }
-
-    .info-strip {
-        padding: 50px 20px;
-    }
-
-    .info-strip__buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .info-strip__buttons .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .navbar {
-        padding: 16px;
-    }
-
-    .logo img {
+    .logo img{
         width: 140px;
     }
 
-    .nav-links {
-        gap: 14px;
-        font-size: 0.9rem;
+    .nav-toggle{
+        display: flex;
     }
 
-    .nav-cta button {
-        padding: 10px 16px;
-    }
-
-    .hero-section {
-        padding: 32px 16px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .hero-numbers {
-        flex-direction: column;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
+    .nav-menu{
+        position: fixed;
+        top: 80px;
+        left: 0;
         width: 100%;
-    }
-
-    .hero-buttons a,
-    .hero-buttons button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .value-section {
-        padding: 32px 16px;
-    }
-
-    .value-content h2 {
-        font-size: 32px;
-    }
-
-    .services-section,
-    .testimonials-section,
-    .core-values-section,
-    .our-story-section,
-    .numbers-section {
-        padding: 80px 16px;
-    }
-
-    .service-card {
-        padding: 32px 24px;
-    }
-
-    .gallery-intro,
-    .gallery-cta {
-        padding: 0 16px;
-    }
-
-    .testimonial-card {
-        padding: 28px 22px;
-        min-height: auto;
-    }
-
-    .testimonial-header {
+        height: calc(100vh - 80px);
+        background: var(--glass-dark, rgba(246, 241, 252, 0.97));
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 40px 20px;
     }
 
-    .testimonial-cta-row p {
-        font-size: 18px;
+    .nav-menu.active{
+        transform: translateX(0);
     }
 
-    .contact-section {
-        padding: 50px 16px;
+    .nav-links{
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
     }
 
-    .contact-container {
-        gap: 24px;
-    }
-
-    .contact-form-card {
-        padding: 24px 18px;
-    }
-
-    .contact-map {
-        min-height: 360px;
-    }
-
-    .about-hero {
-        height: auto;
-        min-height: 420px;
-        padding: 48px 16px;
-    }
-
-    .about-hero-content h1 {
-        font-size: 38px;
-    }
-
-    .about-hero-content p {
-        font-size: 16px;
-    }
-
-    .timeline-header {
-        gap: 10px;
-    }
-
-    .timeline-header h3 {
+    .nav-links a{
         font-size: 20px;
     }
 
-    .stats-grid {
-        gap: 24px;
+    .nav-cta button{
+        padding: 14px 32px;
+        font-size: 16px;
     }
 
-    .stat-card {
-        padding: 24px;
+    /* ----- HERO ----- */
+    /* Full hero layout (SVG illustration backdrop, sparkle
+       interaction) is handled in the dedicated "MOBILE HERO"
+       block further down. */
+
+    .hero-content h1{
+        font-size: 38px;
     }
 
-    .stat-number {
-        font-size: 48px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-links {
-        font-size: 0.85rem;
-        gap: 10px;
+    .hero-numbers,
+    .hero-buttons{
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .hero-content h1 {
-        font-size: 30px;
-        line-height: 1.2;
+    /* ----- VALUE STATEMENT ----- */
+
+    .value-section{
+        height: auto;
+        min-height: 480px;
+        padding: 40px 24px;
     }
 
-    .hero-images {
-        height: 360px;
+    .value-content h2{
+        font-size: 34px;
     }
 
-    .image-track img {
-        height: 140px;
-    }
+    /* ----- SERVICES ----- */
 
-    .value-content h2 {
-        font-size: 28px;
+    .services-section{
+        padding: 70px 24px !important;
     }
 
     .services-intro h2,
     .gallery-intro h2,
     .core-values-intro h2,
     .our-story-intro h2,
-    .numbers-intro h2 {
-        font-size: 30px;
+    .numbers-intro h2{
+        font-size: 32px;
     }
 
-    .carousel-wrapper {
-        height: 280px;
+    .services-container{
+        gap: 24px;
     }
 
-    .carousel-card {
-        width: 200px;
-        height: 240px;
+    .service-card{
+        width: 100%;
+        max-width: 400px;
     }
 
-    .carousel-card.position-center {
-        width: 220px;
-        height: 260px;
+    /* ----- GALLERY (homepage strip) ----- */
+
+    .gallery-image{
+        width: 160px;
+        height: 160px;
     }
 
-    .carousel-card.position-left-1 {
-        left: calc(50% - 150px);
+    /* ----- TESTIMONIALS ----- */
+
+    .testimonials-section{
+        padding: 70px 24px !important;
     }
 
-    .carousel-card.position-left-2 {
-        left: calc(50% - 260px);
+    .testimonial-card{
+        padding: 32px;
+        margin-bottom: 50px;
     }
 
-    .carousel-card.position-right-1 {
-        left: calc(50% + 150px);
-    }
-
-    .carousel-card.position-right-2 {
-        left: calc(50% + 260px);
-    }
-
-    .stories-small-track {
-        overflow-x: auto;
-    }
-
-    .stories-small-card {
-        width: 88px;
-        min-width: 88px;
-        height: 140px;
-    }
-
-    .info-strip__phones {
+    .testimonial-cta-row{
         flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    /* ----- ABOUT HERO ----- */
+
+    .about-hero{
+        height: auto;
+        min-height: 420px;
+        padding: 40px 24px;
+    }
+
+    .about-hero-content h1{
+        font-size: 36px;
+    }
+
+    /* ----- MISSION / VISION ----- */
+
+    .mission-vision-section{
+        padding: 70px 24px !important;
+    }
+
+    .mission-vision-block{
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 90px;
+        text-align: center;
+    }
+
+    .mission-vision-block .image-collage{
+        order: -1;
+    }
+
+    .mission-content{
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .content-heading{
+        justify-content: center;
+    }
+
+    .image-collage{
+        transform: scale(0.8);
+    }
+
+    /* ----- CORE VALUES ----- */
+
+    .core-values-section{
+        padding: 70px 24px !important;
+    }
+
+    .values-row,
+    .middle-row{
+        flex-wrap: wrap;
+        gap: 24px !important;
+    }
+
+    .value-card{
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* ----- OUR STORY / TIMELINE ----- */
+
+    .our-story-section{
+        padding: 70px 24px !important;
+    }
+
+    .timeline::before{
+        left: 20px;
+    }
+
+    .timeline-item{
+        grid-template-columns: 40px 1fr;
+        margin-bottom: 50px;
+    }
+
+    .timeline-marker{
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .timeline-item.left .timeline-content,
+    .timeline-item.right .timeline-content{
+        grid-column: 2;
+        justify-self: start;
+        text-align: left;
+        padding-left: 24px;
+        padding-right: 0;
+    }
+
+    .timeline-item.left .timeline-header,
+    .timeline-item.right .timeline-header{
+        justify-content: flex-start;
+    }
+
+    /* ----- STATS ----- */
+
+    .numbers-section{
+        padding: 70px 24px !important;
+    }
+
+    .stat-card{
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* ----- GALLERY PAGE ----- */
+
+    .gallery-hero{
+        height: 320px;
+    }
+
+    .gallery-hero__heading{
+        font-size: 1.6rem;
+    }
+
+    .carousel-wrapper{
+        height: 300px;
+    }
+
+    .carousel-card{
+        width: 200px;
+        height: 250px;
+    }
+
+    .carousel-card.position-center{
+        width: 220px;
+        height: 270px;
+    }
+
+    .carousel-card.position-left-1{
+        left: calc(50% - 160px);
+    }
+
+    .carousel-card.position-left-2{
+        left: calc(50% - 280px);
+    }
+
+    .carousel-card.position-right-1{
+        left: calc(50% + 160px);
+    }
+
+    .carousel-card.position-right-2{
+        left: calc(50% + 280px);
+    }
+
+    /* ----- CINEMATIC STORIES ----- */
+
+    .stories-section{
+        padding: 60px 20px;
+    }
+
+    .stories-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stories-featured{
+        flex: none;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .stories-right{
+        width: 100%;
+        max-width: 600px;
+        align-items: stretch;
+    }
+
+    .stories-small-track{
+        width: 100%;
+    }
+
+    /* ----- CONTACT PAGE ----- */
+
+    .contact-section{
+        padding: 50px 20px;
+    }
+
+    .contact-container{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-map{
+        min-height: 320px;
+    }
+
+    .info-strip{
+        padding: 50px 24px;
+    }
+
+    /* Custom cursor doesn't make sense on touch devices */
+    .cursor-dot,
+    .cursor-outline{
+        display: none;
+    }
+
+    *{
+        cursor: auto !important;
+    }
+
+    a, button, .service-card, .gallery-image, .dot, .nav-toggle{
+        cursor: pointer !important;
     }
 }
 
+/* ---------------------------------------------
+   SMALL PHONES (<=600px)
+--------------------------------------------- */
+
+@media (max-width: 600px){
+
+    .hero-content h1{
+        font-size: 30px;
+    }
+
+    .hero-content p{
+        font-size: 16px;
+    }
+
+    .value-content h2{
+        font-size: 26px;
+    }
+
+    .services-intro h2,
+    .gallery-intro h2,
+    .core-values-intro h2,
+    .our-story-intro h2,
+    .numbers-intro h2,
+    .stories-section__title,
+    .carousel-section__title{
+        font-size: 26px;
+    }
+
+    .about-hero-content h1{
+        font-size: 28px;
+    }
+
+    .content-heading h2{
+        font-size: 28px;
+    }
+
+    .image-collage{
+        transform: scale(0.65);
+        margin: -30px 0;
+    }
+
+    .timeline-header h3{
+        font-size: 20px;
+    }
+
+    .stat-number{
+        font-size: 44px;
+    }
+
+    .testimonial-header img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .testimonial-header h3{
+        font-size: 22px;
+    }
+
+    .carousel-card{
+        width: 170px;
+        height: 220px;
+    }
+
+    .carousel-card.position-center{
+        width: 190px;
+        height: 240px;
+    }
+
+    .carousel-card.position-left-1{
+        left: calc(50% - 130px);
+    }
+
+    .carousel-card.position-left-2{
+        left: calc(50% - 230px);
+    }
+
+    .carousel-card.position-right-1{
+        left: calc(50% + 130px);
+    }
+
+    .carousel-card.position-right-2{
+        left: calc(50% + 230px);
+    }
+
+    .info-strip__phones{
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .info-strip__buttons{
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .info-strip__buttons .btn{
+        text-align: center;
+        width: 100%;
+    }
+
+    .contact-form-card{
+        padding: 28px 22px;
+    }
+}
+
+/* =====================================================
+   CUSTOM SVG ICON BADGES
+   The grey placeholder circles now hold meaningful
+   inline SVGs on the gradient badge background.
+   ===================================================== */
+
+.content-icon,
+.value-icon,
+.story-icon,
+.stat-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(108, 43, 191, 0.25);
+}
+
+.content-icon svg,
+.value-icon svg,
+.story-icon svg,
+.stat-icon svg{
+    width: 50%;
+    height: 50%;
+}
+
+.value-icon svg{
+    width: 46%;
+    height: 46%;
+}
+
+/* ---------------------------------------------
+   ARROW BUTTON SVGs (carousel + stories)
+--------------------------------------------- */
+
+.carousel-arrow,
+.stories-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-arrow svg,
+.stories-arrow svg{
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ---------------------------------------------
+   FORM ICONS (assurance / success / error)
+--------------------------------------------- */
+
+.contact-form-card__assurance,
+.form-success p,
+.form-error p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contact-form-card__assurance svg,
+.form-success svg,
+.form-error svg{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------
+   TESTIMONIAL AVATAR (initials, replaces photo)
+--------------------------------------------- */
+
+.testimonial-avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--plum-600), var(--gold-500));
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 16px rgba(108, 43, 191, 0.3);
+}
+
+@media (max-width: 600px){
+    .testimonial-avatar{
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+}
+
+/* ---------------------------------------------
+   ABOUT PAGE: PLACEHOLDER PHOTO BLOCKS
+   Flat grey swapped for a subtle branded pattern
+   so empty image slots still look intentional.
+--------------------------------------------- */
+
+.image,
+.single-image{
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 60%),
+        linear-gradient(135deg, var(--plum-400), var(--plum-600) 55%, var(--gold-500));
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image::after,
+.single-image::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 20c8 12 8 18 0 30-8-12-8-18 0-30z' fill='%23ffffff' fill-opacity='0.35'/%3E%3Cpath d='M30 50c12-8 18-8 30 0-12 8-18 8-30 0z' fill='%23ffffff' fill-opacity='0.35'/%3E%3C/svg%3E");
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ---------------------------------------------
+   ACCESSIBILITY: VISIBLE FOCUS STATES
+--------------------------------------------- */
+
+html{
+    scroll-behavior: smooth;
+}
+
+a:focus-visible,
+button:focus-visible,
+.nav-toggle:focus-visible,
+.dot:focus-visible,
+.form-input:focus-visible{
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------------------------------------------
+   FLOATING ACTION BUTTONS (WhatsApp + Scroll-to-top)
+   Injected into the DOM by script.js on every page.
+--------------------------------------------- */
+
+.float-actions{
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    z-index: 900;
+}
+
+.float-btn{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(63, 23, 104, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.float-btn:hover{
+    transform: translateY(-3px) scale(1.04);
+}
+
+.float-btn svg{
+    width: 26px;
+    height: 26px;
+}
+
+.float-btn--whatsapp{
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.float-btn--top{
+    background: linear-gradient(135deg, var(--plum-600), var(--plum-950));
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+.float-btn--top.is-visible{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.float-btn--top svg{
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 600px){
+    .float-actions{
+        right: 16px;
+        bottom: 16px;
+        gap: 10px;
+    }
+    .float-btn{
+        width: 46px;
+        height: 46px;
+    }
+    .float-btn svg{
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* ---------------------------------------------
+   DESKTOP NAV: LINKS CENTERED, CTA RIGHT-ALIGNED
+--------------------------------------------- */
+
+@media (min-width: 901px){
+
+    .navbar{
+        position: relative;
+    }
+
+    .nav-menu{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .nav-links{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 30px;
+    }
+}
+
+/* ---------------------------------------------
+   MOBILE HERO: CUSTOM SVG ILLUSTRATION BACKDROP
+   The photo scroller is dropped completely on
+   mobile. A hand-built wedding-decor illustration
+   (floral arch, fairy lights, falling petals,
+   glowing rings) takes its place — fully unique
+   from the Value section's full-bleed photo, and
+   tappable for a little sparkle interaction.
+--------------------------------------------- */
+
+/* Hidden by default (desktop); the media query below switches
+   it on for mobile. Must come BEFORE that override so the
+   cascade resolves correctly. */
+.hero-bg-illustration{
+    display: none;
+}
+
+@media (max-width: 900px){
+
+    .hero-section{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 100px 24px 60px 24px !important;
+        gap: 28px;
+        text-align: center;
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    /* Photo scroller is fully removed on mobile */
+    .hero-images{
+        display: none;
+    }
+
+    .hero-bg-illustration{
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        cursor: pointer;
+    }
+
+    .hero-bg-illustration svg{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .hero-content{
+        position: relative;
+        z-index: 2;
+        align-items: center;
+        color: #ffffff;
+    }
+
+    .hero-content p{
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-numbers span{
+        color: #ffffff;
+    }
+}
+
+/* ---------------------------------------------
+   SVG ILLUSTRATION ANIMATIONS
+   (rules apply only while the illustration is
+   visible, i.e. on mobile, but keyframes are
+   harmless to define globally)
+--------------------------------------------- */
+
+.hbi-bulb{
+    animation: hbiTwinkle 2.6s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes hbiTwinkle{
+    0%, 100%{ opacity: 0.35; transform: scale(0.8); }
+    50%{ opacity: 1; transform: scale(1.2); }
+}
+
+.hbi-petal{
+    animation: hbiFall linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes hbiFall{
+    0%{ transform: translateY(-40px) translateX(0) rotate(0deg); opacity: 0; }
+    8%{ opacity: 0.9; }
+    92%{ opacity: 0.8; }
+    100%{ transform: translateY(720px) translateX(24px) rotate(220deg); opacity: 0; }
+}
+
+.hbi-rings{
+    animation: hbiGlow 4s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes hbiGlow{
+    0%, 100%{ opacity: 0.55; }
+    50%{ opacity: 0.95; }
+}
+
+.hbi-glow-orb{
+    animation: hbiPulse 6s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes hbiPulse{
+    0%, 100%{ opacity: 0.5; transform: scale(1); }
+    50%{ opacity: 0.85; transform: scale(1.08); }
+}
+
+/* Tap-to-sparkle particles, spawned by script.js */
+.hbi-sparkle{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    background: radial-gradient(circle, #ffffff, var(--gold-300, #f1da7e) 55%, transparent 72%);
+    clip-path: polygon(50% 0%, 61% 36%, 100% 50%, 61% 64%, 50% 100%, 39% 64%, 0% 50%, 39% 36%);
+    transform: translate(-50%, -50%) scale(0);
+    animation: hbiSparklePop 0.75s ease-out forwards;
+    z-index: 3;
+}
+
+@keyframes hbiSparklePop{
+    0%{ transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+    55%{ transform: translate(-50%, -50%) scale(1.3) rotate(50deg); opacity: 1; }
+    100%{ transform: translate(-50%, -50%) scale(0.3) rotate(100deg); opacity: 0; }
+}
