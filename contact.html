@@ -7,10 +7,6 @@
     <meta name="keywords" content="contact sparkles events, wedding planners nairobi, book wedding decor, event coordination inquiry">
     <title>Sparkles Events & Decor | Contact Us</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="assets/site.webmanifest">
     <!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -25,9 +21,18 @@
     <div class="logo">
         <!-- Replace with your real logo image later -->
          <a href="index.html">
-            <img src="SparkelsLogo.png" alt="Company Logo">
+            <img src="assets/SparkelsLogo.png" alt="Company Logo">
          </a> 
       </div>
+    <!-- Mobile Nav Toggle -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Nav Menu Wrapper -->
+    <div class="nav-menu" id="nav-menu">
 
     <!-- Navigation Links -->
     <nav class="nav-links">
@@ -44,6 +49,8 @@
         <button onclick="window.location.href='contact.html'">Book Now</button>
 
     </div>
+
+    </div><!-- end .nav-menu -->
 
 </header>
 
@@ -144,17 +151,18 @@
 
           <!-- 24hr assurance text -->
           <p class="contact-form-card__assurance">
-            &#10003; We reply to all enquiries within 24 hours.
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+            We reply to all enquiries within 24 hours.
           </p>
 
           <!-- Success message — hidden until form is submitted successfully -->
           <div class="form-success" id="form-success">
-            <p>&#10003; Your message has been sent! We will be in touch within 24 hours.</p>
+            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Your message has been sent! We will be in touch within 24 hours.</p>
           </div>
 
           <!-- Error message — hidden until a send failure occurs -->
           <div class="form-error" id="form-error">
-            <p>&#10005; Something went wrong. Please try again or call us directly.</p>
+            <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Something went wrong. Please try again or call us directly.</p>
           </div>
 
         </form>
