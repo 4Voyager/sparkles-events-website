@@ -1,6 +1,295 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 /* ============================================================
+   SPARKLES EVENTS & DECOR — DESIGN TOKEN SYSTEM
+   ============================================================
+   
+   A single source of truth for all design decisions.
+   Change a token value once → it updates everywhere on the site.
+   
+   STRUCTURE:
+   • Brand Colors    — Core visual identity
+   • Semantic Colors — Purpose-based (bg, text, borders)
+   • Typography      — Font families, scales, weights
+   • Spacing         — Consistent rhythm
+   • Sizing          — Borders, radius, shadows
+   • Motion          — Transitions and durations
+   • Layout          — Z-index layers
+   
+   ============================================================ */
+
+:root {
+  /* ──────────────────────────────────────────────────────────
+     BRAND COLORS
+     The core visual identity of Sparkles Events & Decor
+     ────────────────────────────────────────────────────────── */
+
+  /* Primary Brand Colors */
+  --color-plum-50:      #f3ebf8;   /* Lightest — backgrounds */
+  --color-plum-100:     #e6d5f0;   /* Very light */
+  --color-plum-200:     #d9bdf0;   /* Light — hover states */
+  --color-plum-300:     #c79df0;   /* Medium-light */
+  --color-plum-400:     #9b5fd1;   /* Medium — interactive */
+  --color-plum-500:     #6c2bbf;   /* Core brand plum */
+  --color-plum-600:     #5a23a0;   /* Slightly darker */
+  --color-plum-700:     #4a1a80;   /* Dark — text on light bg */
+  --color-plum-800:     #3f1768;   /* Very dark */
+  --color-plum-900:     #2a0f4a;   /* Almost black — deepest */
+  --color-plum-950:     #1a0728;   /* Darkest */
+
+  /* Gold Accent */
+  --color-gold-50:      #fffbf0;
+  --color-gold-100:     #fef3e0;
+  --color-gold-200:     #fde8c6;
+  --color-gold-300:     #f1da7e;   /* Bright gold — highlights */
+  --color-gold-400:     #e0be3d;   /* Medium gold */
+  --color-gold-500:     #c9a23f;   /* Core gold accent */
+  --color-gold-600:     #b47c3c;   /* Warm gold */
+  --color-gold-700:     #9a6830;   /* Deep gold */
+  --color-gold-800:     #7a5028;   /* Very deep */
+
+  /* Accent Colors (supporting) */
+  --color-green-50:     #f0fdf4;
+  --color-green-500:    #2d6a2d;   /* Forest green */
+  --color-green-600:    #1f4c1f;
+  
+  --color-green-light:  #a3d9a5;   /* Soft green for success states */
+  --color-red-light:    #f5a9a9;   /* Soft red for error states */
+  --color-red-dark:     #a02020;   /* Error red */
+
+  /* Neutrals */
+  --color-white:        #ffffff;
+  --color-black:        #000000;
+  --color-gray-50:      #fafafa;
+  --color-gray-100:     #f5f5f5;
+  --color-gray-200:     #eeeeee;
+  --color-gray-300:     #e0e0e0;
+  --color-gray-400:     #d9d9d9;
+  --color-gray-500:     #999999;
+  --color-gray-600:     #666666;
+  --color-gray-700:     #444444;
+  --color-gray-800:     #222222;
+  --color-gray-900:     #1a1a1a;
+  
+  --color-ink:          #221331;   /* Deep text color */
+
+
+  /* ──────────────────────────────────────────────────────────
+     SEMANTIC COLORS
+     Purpose-based color usage (independent of specific names)
+     ────────────────────────────────────────────────────────── */
+
+  /* Light Mode (default) */
+  --bg-page:            var(--color-white);
+  --bg-section:         var(--color-plum-50);
+  --bg-card:            var(--color-white);
+  --bg-card-hover:      var(--color-plum-100);
+  --bg-input:           var(--color-gray-50);
+  --bg-input-focus:     var(--color-plum-50);
+  --bg-overlay:         rgba(34, 19, 49, 0.45);
+  --bg-modal:           var(--color-white);
+
+  --text-primary:       var(--color-ink);
+  --text-secondary:     var(--color-gray-600);
+  --text-tertiary:      var(--color-gray-500);
+  --text-accent:        var(--color-plum-700);
+  --text-inverse:       var(--color-white);
+  --text-success:       var(--color-green-500);
+  --text-error:         var(--color-red-dark);
+
+  --border-default:     1px solid var(--color-gray-200);
+  --border-subtle:      1px solid var(--color-gray-100);
+  --border-accent:      1px solid var(--color-gold-500);
+  --border-error:       1px solid var(--color-red-light);
+  --border-success:     1px solid var(--color-green-light);
+
+  --btn-primary-bg:     var(--color-plum-700);
+  --btn-primary-text:   var(--color-white);
+  --btn-primary-hover:  var(--color-plum-800);
+  
+  --btn-secondary-bg:   var(--color-gold-500);
+  --btn-secondary-text: var(--color-white);
+  --btn-secondary-hover: var(--color-gold-600);
+
+  --btn-ghost-text:     var(--color-plum-700);
+  --btn-ghost-border:   var(--color-plum-300);
+  --btn-ghost-hover-bg: var(--color-plum-50);
+
+
+  /* ──────────────────────────────────────────────────────────
+     TYPOGRAPHY SYSTEM
+     Professional type hierarchy for all text
+     ────────────────────────────────────────────────────────── */
+
+  /* Font Families */
+  --font-display:       'Playfair Display', Georgia, serif;
+  --font-body:          'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Font Weights */
+  --font-weight-light:  300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi:   600;
+  --font-weight-bold:   700;
+
+  /* Type Scale */
+  --text-xs:            0.6875rem;  /* 11px — labels, badges */
+  --text-sm:            0.8125rem;  /* 13px — captions, hints */
+  --text-base:          0.9375rem;  /* 15px — standard body */
+  --text-lg:            1.0625rem;  /* 17px — large body */
+  --text-xl:            1.25rem;    /* 20px — small headings */
+  --text-2xl:           1.5rem;     /* 24px — medium headings */
+  --text-3xl:           2rem;       /* 32px — section headers */
+  --text-4xl:           2.5rem;     /* 40px — hero subheading */
+  --text-5xl:           3rem;       /* 48px — major heading */
+  --text-6xl:           3.75rem;    /* 60px — hero heading */
+
+  /* Line Heights */
+  --line-tight:         1.25;
+  --line-normal:        1.5;
+  --line-relaxed:       1.75;
+  --line-loose:         2;
+
+  /* Letter Spacing */
+  --tracking-tight:     -0.01em;
+  --tracking-normal:    0;
+  --tracking-wide:      0.025em;
+  --tracking-wider:     0.05em;
+
+
+  /* ──────────────────────────────────────────────────────────
+     SPACING & SIZING
+     Consistent rhythm throughout the interface
+     ────────────────────────────────────────────────────────── */
+
+  /* Spacing Scale (base 8px) */
+  --space-2xs:          0.25rem;    /* 4px */
+  --space-xs:           0.5rem;     /* 8px */
+  --space-sm:           0.75rem;    /* 12px */
+  --space-md:           1rem;       /* 16px */
+  --space-lg:           1.5rem;     /* 24px */
+  --space-xl:           2rem;       /* 32px */
+  --space-2xl:          3rem;       /* 48px */
+  --space-3xl:          4rem;       /* 64px */
+  --space-4xl:          5rem;       /* 80px */
+  --space-5xl:          6rem;       /* 96px */
+
+  /* Border Radius */
+  --radius-none:        0;
+  --radius-sm:          4px;
+  --radius-md:          8px;
+  --radius-lg:          12px;
+  --radius-xl:          16px;
+  --radius-2xl:         20px;
+  --radius-pill:        100px;
+  --radius-circle:      50%;
+
+  /* Shadows */
+  --shadow-none:        none;
+  --shadow-sm:          0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md:          0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg:          0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl:          0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-2xl:         0 25px 50px rgba(0, 0, 0, 0.2);
+  
+  /* Gold-tinted shadows (for premium feel) */
+  --shadow-gold:        0 8px 16px rgba(108, 43, 191, 0.25);
+  --shadow-gold-lg:     0 16px 32px rgba(108, 43, 191, 0.3);
+
+
+  /* ──────────────────────────────────────────────────────────
+     MOTION & TRANSITIONS
+     Smooth, intentional animations
+     ────────────────────────────────────────────────────────── */
+
+  /* Transition Durations */
+  --duration-instant:   50ms;
+  --duration-fast:      150ms;
+  --duration-base:      280ms;
+  --duration-slow:      500ms;
+  --duration-slower:    800ms;
+
+  /* Transition Curves */
+  --ease-in:            cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:           cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:        cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-sharp:         cubic-bezier(0.4, 0, 0.6, 1);
+
+  /* Pre-built Transitions */
+  --transition-fast:    all var(--duration-fast) var(--ease-in-out);
+  --transition-base:    all var(--duration-base) var(--ease-in-out);
+  --transition-slow:    all var(--duration-slow) var(--ease-in-out);
+  --transition-colors:  color var(--duration-base) var(--ease-in-out),
+                        background-color var(--duration-base) var(--ease-in-out),
+                        border-color var(--duration-base) var(--ease-in-out);
+
+
+  /* ──────────────────────────────────────────────────────────
+     LAYOUT & STACKING
+     Z-index hierarchy for layering
+     ────────────────────────────────────────────────────────── */
+
+  --z-base:             1;
+  --z-dropdown:         10;
+  --z-sticky:           20;
+  --z-fixed:            30;
+  --z-modal-backdrop:   40;
+  --z-modal:            50;
+  --z-popover:          60;
+  --z-tooltip:          70;
+  --z-notification:     80;
+  --z-cursor:           999;
+
+
+  /* ──────────────────────────────────────────────────────────
+     INTERACTIVE STATES
+     Consistent hover, focus, active states
+     ────────────────────────────────────────────────────────── */
+
+  --focus-outline:      2px solid var(--color-gold-500);
+  --focus-outline-offset: 2px;
+}
+
+
+/* ──────────────────────────────────────────────────────────
+   DARK MODE OVERRIDE
+   Toggle [data-theme="dark"] on <html> to enable
+   ────────────────────────────────────────────────────────── */
+
+[data-theme="dark"] {
+  --bg-page:            var(--color-plum-950);
+  --bg-section:         var(--color-plum-900);
+  --bg-card:            rgba(107, 43, 191, 0.12);
+  --bg-card-hover:      rgba(107, 43, 191, 0.2);
+  --bg-input:           var(--color-plum-900);
+  --bg-input-focus:     var(--color-plum-800);
+  --bg-overlay:         rgba(26, 7, 40, 0.7);
+  --bg-modal:           var(--color-plum-900);
+
+  --text-primary:       var(--color-plum-50);
+  --text-secondary:     var(--color-plum-200);
+  --text-tertiary:      var(--color-plum-300);
+  --text-accent:        var(--color-gold-300);
+  
+  --border-default:     1px solid rgba(243, 235, 248, 0.1);
+  --border-subtle:      1px solid rgba(243, 235, 248, 0.05);
+  --border-accent:      1px solid var(--color-gold-400);
+
+  --btn-primary-bg:     var(--color-plum-600);
+  --btn-primary-hover:  var(--color-plum-500);
+  
+  --btn-secondary-bg:   var(--color-gold-500);
+  --btn-secondary-hover: var(--color-gold-400);
+
+  --btn-ghost-text:     var(--color-plum-50);
+  --btn-ghost-border:   var(--color-plum-400);
+  --btn-ghost-hover-bg: rgba(107, 43, 191, 0.15);
+}
+
+
+
+
+/* ============================================================
    OPTIMIZED & REORGANIZED VERSION
    ------------------------------------------------------------
    Changes:
@@ -982,7 +1271,7 @@ h1, h2, h3, h4, h5, h6, .hero-content h1, .value-content h2, .services-intro h2 
 
     height: 550px;
 
-    background-image: url("..images/about-hero.jpg");
+    background-image: url("../assets/images/about-hero.jpg");
 
     background-size: cover;
 
@@ -2996,8 +3285,12 @@ button:hover, .btn:hover {
 }
 
 /* Prevent background scroll while the mobile menu is open */
-body.nav-open{
-    overflow: hidden;
+body{
+    overflow-y: scroll; /* Always reserve scrollbar space */
+}
+
+body[style*="overflow: hidden"]{
+    overflow: hidden !important;
 }
 
 /* ---------------------------------------------
@@ -3813,6 +4106,50 @@ button:focus-visible,
     }
 }
 
+/* ──────────────────────────────────────────────────────────
+   SCROLL-REVEAL ANIMATIONS
+   Elements fade in and slide up when entering viewport.
+   Uses Intersection Observer API (JS adds .visible class).
+   ────────────────────────────────────────────────────────── */
+
+/* Single element reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-in-out),
+              transform var(--duration-slow) var(--ease-in-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Group reveal with staggered children */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-base) var(--ease-in-out),
+              transform var(--duration-base) var(--ease-in-out);
+}
+
+/* Staggered timing for up to 12 children */
+.reveal-group.visible > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0ms;    }
+.reveal-group.visible > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 100ms;  }
+.reveal-group.visible > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 200ms;  }
+.reveal-group.visible > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 300ms;  }
+.reveal-group.visible > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 400ms;  }
+.reveal-group.visible > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 450ms;  }
+.reveal-group.visible > *:nth-child(7)  { opacity: 1; transform: none; transition-delay: 500ms;  }
+.reveal-group.visible > *:nth-child(8)  { opacity: 1; transform: none; transition-delay: 500ms;  }
+.reveal-group.visible > *:nth-child(9)  { opacity: 1; transform: none; transition-delay: 500ms;  }
+.reveal-group.visible > *:nth-child(10) { opacity: 1; transform: none; transition-delay: 500ms;  }
+.reveal-group.visible > *:nth-child(11) { opacity: 1; transform: none; transition-delay: 500ms;  }
+.reveal-group.visible > *:nth-child(12) { opacity: 1; transform: none; transition-delay: 500ms;  }
+
+/* Catch-all: ensure all children beyond 12 are visible */
+.reveal-group.visible > * { opacity: 1; transform: none; }
+
 /* ---------------------------------------------
    SVG ILLUSTRATION ANIMATIONS
    (rules apply only while the illustration is
@@ -3884,3 +4221,6 @@ button:focus-visible,
     55%{ transform: translate(-50%, -50%) scale(1.3) rotate(50deg); opacity: 1; }
     100%{ transform: translate(-50%, -50%) scale(0.3) rotate(100deg); opacity: 0; }
 }
+
+
+
