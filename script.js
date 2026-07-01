@@ -1,5 +1,7 @@
 // ============================================
-// MOBILE NAV TOGGLE
+// MOBILE NAV TOGGLE — HAMBURGER ONLY
+// Menu only opens when hamburger is explicitly clicked.
+// No automatic swipe-to-open gestures.
 // ============================================
 
 const navToggle = document.getElementById('nav-toggle');
@@ -10,28 +12,80 @@ if (navToggle && navMenu) {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
+        document.body.style.overflow = '';
     }
 
-    function toggleNavMenu() {
+    function toggleNavMenu(e) {
+        e.stopPropagation();
         const isOpen = navMenu.classList.toggle('active');
         navToggle.classList.toggle('active', isOpen);
         navToggle.setAttribute('aria-expanded', String(isOpen));
-        document.body.classList.toggle('nav-open', isOpen);
+        
+        /* Prevent body scroll while menu is open */
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 
+    /* Hamburger button is the ONLY trigger */
     navToggle.addEventListener('click', toggleNavMenu);
 
-    // Close menu whenever a link or the Book Now button inside it is tapped
+    /* Close menu when a link is tapped (not on swipe) */
     navMenu.querySelectorAll('a, button').forEach(el => {
         el.addEventListener('click', closeNavMenu);
     });
 
-    // Close on resize back to desktop width
+    /* Close menu when tapping outside of it */
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            closeNavMenu();
+        }
+    });
+
+    /* Close on resize back to desktop */
     window.addEventListener('resize', () => {
         if (window.innerWidth > 900) closeNavMenu();
     });
 }
+
+// ============================================
+// SCROLL-REVEAL ANIMATIONS — INTERSECTION OBSERVER
+// Elements with .reveal or .reveal-group fade in
+// and slide up as they enter the viewport.
+// ============================================
+
+(function initScrollReveal() {
+    /* Only set up observer if the browser supports it */
+    if (!('IntersectionObserver' in window)) {
+        /* Fallback: immediately show all reveals on older browsers */
+        document.querySelectorAll('.reveal, .reveal-group').forEach(el => {
+            el.classList.add('visible');
+        });
+        return;
+    }
+
+    const observerOptions = {
+        root: null,           /* viewport */
+        rootMargin: '0px 0px -80px 0px',  /* trigger 80px before element exits bottom */
+        threshold: 0.1        /* at least 10% visible */
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                /* Element is in viewport — make it visible */
+                entry.target.classList.add('visible');
+                /* Stop observing this element (animation only triggers once) */
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    /* Observe all reveal elements on the page */
+    document.querySelectorAll('.reveal, .reveal-group').forEach(el => {
+        revealObserver.observe(el);
+    });
+})();
 
 // =========================
 // SLIDER DATA
@@ -442,7 +496,8 @@ sectionsToAnimate.forEach(section => {
 // HERO SVG ILLUSTRATION — TAP TO SPARKLE
 // Mobile-only decorative interaction: tapping the
 // hero background spawns a little burst of sparkles
-// at the touch point.
+// at the touch point. Uses passive event listeners
+// to avoid blocking browser scroll performance.
 // ============================================
 
 const heroIllustration = document.getElementById('hero-bg-illustration');
@@ -479,6 +534,9 @@ if (heroIllustration) {
         spawnSparkles(x, y);
     }
 
+    /* Click for desktop */
     heroIllustration.addEventListener('click', handleHeroTap);
+    
+    /* Touch for mobile — passive: true lets browser optimize scroll perf */
     heroIllustration.addEventListener('touchstart', handleHeroTap, { passive: true });
 }
